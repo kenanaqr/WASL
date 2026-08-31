@@ -14,6 +14,28 @@
 
   --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
   --font-arabic: "Cairo", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  
+  /* Cafe Demo Scoped Tokens */
+  --color-cafe-espresso: #2B211C;
+  --color-cafe-cream: #F4EFE7;
+  --color-cafe-olive: #6E7358;
+  --color-cafe-terracotta: #A9684F;
+  --color-cafe-stone: #D8D0C5;
+
+  --font-cafe-display: "Playfair Display", serif;
+  --font-cafe-body: "DM Sans", system-ui, sans-serif;
+  --font-cafe-arabic: "Tajawal", system-ui, sans-serif;
+
+  /* DAR Restaurant Demo Scoped Tokens */
+  --color-dar-midnight: #171614;
+  --color-dar-ivory: #F3EEE6;
+  --color-dar-burgundy: #6A2734;
+  --color-dar-brass: #A58A5B;
+  --color-dar-stone: #D7D0C4;
+
+  --font-dar-display: "Cormorant Garamond", serif;
+  --font-dar-body: "Manrope", system-ui, sans-serif;
+  --font-dar-arabic: "Tajawal", system-ui, sans-serif;
 }
 
 :root {
@@ -45,6 +67,32 @@ body {
 /* Custom connection line subtle gradient */
 .border-sand-subtle {
   border-color: rgba(220, 204, 182, 0.45);
+}
+
+/* Cafe Demo Typography Utilities */
+.font-cafe-display {
+  font-family: var(--font-cafe-display);
+}
+
+.font-cafe-body {
+  font-family: var(--font-cafe-body);
+}
+
+.font-cafe-arabic {
+  font-family: var(--font-cafe-arabic);
+}
+
+/* DAR Demo Typography Utilities */
+.font-dar-display {
+  font-family: var(--font-dar-display);
+}
+
+.font-dar-body {
+  font-family: var(--font-dar-body);
+}
+
+.font-dar-arabic {
+  font-family: var(--font-dar-arabic);
 }
 
 /* Restrained transitions */

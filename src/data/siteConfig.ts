@@ -45,7 +45,7 @@ export const siteConfig: SiteConfig = {
   arabicName: 'وصل',
   tagline: 'Bringing businesses closer to their customers.',
   description:
-    'WASL creates high-impact, tailor-made digital experiences and websites for Jordanian businesses.',
+    'WASL helps local businesses in Jordan establish a stronger digital presence—from Google profiles and NFC touchpoints to custom websites and practical digital experiences.',
   contact: {
     // PLACEHOLDER VALUES: Replace when official details are ready
     phone: '+962 6 000 0000',

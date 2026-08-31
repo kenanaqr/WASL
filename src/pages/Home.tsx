@@ -4,6 +4,7 @@ import {
   IdeaSection,
   ServicesSection,
   WorkPreviewSection,
+  StartSimpleSection,
   ProcessSection,
   WhyWaslSection,
   LocalSection,
@@ -16,7 +17,7 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
-    <div className="bg-alabaster selection:bg-petrol selection:text-alabaster">
+    <div>
       {/* 1. Hero Section */}
       <HeroSection onNavigate={onNavigate} />
 
@@ -29,16 +30,19 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 4. Our Work (Cafe, Restaurant, Barbershop Concept Previews) */}
       <WorkPreviewSection onNavigate={onNavigate} />
 
-      {/* 5. How WASL Works (01 Understand - 02 Build - 03 Connect - 04 Grow) */}
+      {/* 5. Start Simple, Build Further */}
+      <StartSimpleSection />
+
+      {/* 6. How WASL Works (01 Understand - 02 Build - 03 Connect - 04 Evolve) */}
       <ProcessSection />
 
-      {/* 6. Why WASL (Connection vs standard agency websites) */}
+      {/* 7. Why WASL (Connection vs standard agency websites) */}
       <WhyWaslSection />
 
-      {/* 7. About / Local Connection (Rooted in Amman, Jordan) */}
+      {/* 8. About / Local Connection (Rooted in Amman, Jordan) */}
       <LocalSection />
 
-      {/* 8. Final CTA (Talk to WASL & WhatsApp) */}
+      {/* 9. Final CTA (Talk to WASL & WhatsApp) */}
       <CtaSection onNavigate={onNavigate} />
     </div>
   );

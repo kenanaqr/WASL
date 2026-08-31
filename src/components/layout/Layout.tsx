@@ -10,7 +10,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children, currentPath, onNavigate }) => {
   return (
-    <div className="flex min-h-screen flex-col bg-white text-neutral-900 antialiased selection:bg-neutral-900 selection:text-white">
+    <div className="flex min-h-screen flex-col bg-alabaster text-charcoal antialiased selection:bg-petrol selection:text-alabaster">
       <Navbar currentPath={currentPath} onNavigate={onNavigate} />
       <main className="flex-1">{children}</main>
       <Footer onNavigate={onNavigate} />

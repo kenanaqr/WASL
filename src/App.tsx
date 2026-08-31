@@ -14,6 +14,14 @@ import {
 function App() {
   const { currentPath, navigate } = useRouter();
 
+  if (currentPath === '/demos/cafe') {
+    return <CafeDemo onNavigate={navigate} />;
+  }
+  
+  if (currentPath === '/demos/restaurant') {
+    return <RestaurantDemo onNavigate={navigate} />;
+  }
+
   const renderCurrentPage = () => {
     switch (currentPath) {
       case '/':
@@ -26,10 +34,6 @@ function App() {
         return <AboutPage onNavigate={navigate} />;
       case '/contact':
         return <ContactPage onNavigate={navigate} />;
-      case '/demos/cafe':
-        return <CafeDemo onNavigate={navigate} />;
-      case '/demos/restaurant':
-        return <RestaurantDemo onNavigate={navigate} />;
       case '/demos/barbershop':
         return <BarbershopDemo onNavigate={navigate} />;
       default:

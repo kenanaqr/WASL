@@ -7,3 +7,4 @@ export * from './WhyWaslSection';
 export * from './LocalSection';
 export * from './CtaSection';
 export * from './ConnectionGraphic';
+export * from './StartSimpleSection';

@@ -16,23 +16,28 @@ export const LocalSection: React.FC = () => {
               </div>
 
               <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-petrol">
-                A local perspective for Jordanian businesses.
+                A local partner who understands how the business actually works.
               </h2>
 
               <p className="text-base text-charcoal/80 font-light leading-relaxed">
                 We live and work in the same neighborhoods as the businesses we support. We understand
-                how people in Jordan discover places, how they message on WhatsApp, how they prefer
-                menus presented, and why authentic warmth matters more than tech gimmicks.
+                how people in Jordan search on Google Maps before visiting, how they rely on WhatsApp
+                for quick communication, and why a trustworthy digital presence matters when someone
+                is deciding between two businesses on the same street.
               </p>
 
-              <div className="pt-2 flex items-center gap-6 text-sm text-petrol font-medium">
+              <div className="pt-2 flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-petrol font-medium">
                 <span className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-sand"></span>
-                  Native Bilingual (Arabic / English)
+                  Arabic &amp; English
                 </span>
                 <span className="flex items-center gap-2">
                   <span className="h-2 w-2 rounded-full bg-sand"></span>
-                  Local Market Relevance
+                  WhatsApp-native communication
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-sand"></span>
+                  Local discovery patterns
                 </span>
               </div>
             </div>
@@ -40,12 +45,14 @@ export const LocalSection: React.FC = () => {
             {/* Arabic Context */}
             <div className="lg:col-span-6 border-t lg:border-t-0 lg:border-l border-sand/40 pt-8 lg:pt-0 lg:pl-12 font-arabic text-right">
               <h3 className="text-2xl sm:text-3xl font-bold text-petrol leading-snug">
-                وصل — فكرة أردنية تفهم خصوصية مجتمعنا.
+                وصل — شريك محلي يفهم طبيعة عملك.
               </h3>
               <p className="mt-4 text-base text-charcoal/80 leading-relaxed font-normal">
-                كل مقهى، مطعم، ومحل تجاري في الأردن يحمل طابعه الخاص وعلاقة فريدة بزبائنه. مهمتنا في{' '}
-                <strong className="text-petrol">{siteConfig.companyName}</strong> هي بناء حضور رقمي يليق
-                بهذا الطابع ويجعل التواصل سهلاً وعفوياً دون تعقيد.
+                كل مقهى، مطعم، ومحل تجاري في الأردن يحمل طابعه الخاص وعلاقة فريدة بزبائنه.
+                في{' '}
+                <strong className="text-petrol">{siteConfig.companyName}</strong> نبني حضوراً
+                رقمياً يعكس هوية عملك الحقيقية ويخلّي عملاءك يوصلولك بسهولة — من
+                البحث على جوجل لحد ما يدخلوا من بابك.
               </p>
               <div className="mt-6 inline-flex items-center gap-3 text-sm text-sand-muted font-medium">
                 <span>عمّان — الأردن</span>
