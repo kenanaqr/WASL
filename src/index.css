@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-petrol: #18414b;
+  --color-petrol-dark: #102c33;
+  --color-petrol-light: #235663;
+  --color-sand: #dcccb6;
+  --color-sand-light: #ede5d8;
+  --color-sand-muted: #c9b497;
+  --color-alabaster: #f7f5f0;
+  --color-alabaster-card: #ffffff;
+  --color-charcoal: #2a2a2a;
+  --color-charcoal-muted: #575757;
+
+  --font-sans: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-arabic: "Cairo", "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+:root {
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f7f5f0;
+  color: #2a2a2a;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background-color: #f7f5f0;
+  color: #2a2a2a;
+}
+
+/* Custom utility for Arabic typography */
+.font-arabic {
+  font-family: var(--font-arabic);
+}
+
+/* Custom connection line subtle gradient */
+.border-sand-subtle {
+  border-color: rgba(220, 204, 182, 0.45);
+}
+
+/* Restrained transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
