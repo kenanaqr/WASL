@@ -22,6 +22,10 @@ function App() {
     return <RestaurantDemo onNavigate={navigate} />;
   }
 
+  if (currentPath === '/demos/barbershop') {
+    return <BarbershopDemo onNavigate={navigate} />;
+  }
+
   const renderCurrentPage = () => {
     switch (currentPath) {
       case '/':
@@ -34,8 +38,6 @@ function App() {
         return <AboutPage onNavigate={navigate} />;
       case '/contact':
         return <ContactPage onNavigate={navigate} />;
-      case '/demos/barbershop':
-        return <BarbershopDemo onNavigate={navigate} />;
       default:
         return (
           <div className="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">

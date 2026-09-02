@@ -1,6 +1,8 @@
 import React from 'react';
 import { darConfig } from '../../../data/demos/restaurantConfig';
 import eggplantImg from '../../../assets/demos/restaurant/eggplant.jpg';
+import lambImg from '../../../assets/demos/restaurant/lamb.jpg';
+import basbousaImg from '../../../assets/demos/restaurant/basbousa.jpg';
 
 export const RestaurantSignatures: React.FC = () => {
   // We extract the specific signature items from the config
@@ -45,8 +47,13 @@ export const RestaurantSignatures: React.FC = () => {
           {/* Lamb */}
           {lamb && (
             <div className="group flex flex-col">
-              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-sm bg-[#1a1917] mb-8 flex items-center justify-center border border-dar-brass/10">
-                <span className="font-dar-body text-xs text-dar-stone/40 uppercase tracking-[0.2em]">Image Placeholder</span>
+              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-sm bg-dar-stone/5 mb-8">
+                <img
+                  src={lambImg}
+                  alt={lamb.name}
+                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
               <div className="flex justify-between items-baseline mb-3 border-b border-dar-brass/20 pb-3">
                 <h3 className="font-dar-display text-2xl text-dar-ivory">{lamb.name}</h3>
@@ -61,8 +68,13 @@ export const RestaurantSignatures: React.FC = () => {
           {/* Basbousa */}
           {basbousa && (
             <div className="group flex flex-col">
-              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-sm bg-[#1a1917] mb-8 flex items-center justify-center border border-dar-brass/10">
-                <span className="font-dar-body text-xs text-dar-stone/40 uppercase tracking-[0.2em]">Image Placeholder</span>
+              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-sm bg-dar-stone/5 mb-8">
+                <img
+                  src={basbousaImg}
+                  alt={basbousa.name}
+                  className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  loading="lazy"
+                />
               </div>
               <div className="flex justify-between items-baseline mb-3 border-b border-dar-brass/20 pb-3">
                 <h3 className="font-dar-display text-2xl text-dar-ivory">{basbousa.name}</h3>

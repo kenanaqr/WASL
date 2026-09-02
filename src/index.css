@@ -36,6 +36,17 @@
   --font-dar-display: "Cormorant Garamond", serif;
   --font-dar-body: "Manrope", system-ui, sans-serif;
   --font-dar-arabic: "Tajawal", system-ui, sans-serif;
+
+  /* LINEA Barbershop Demo Scoped Tokens */
+  --color-linea-carbon: #181716;
+  --color-linea-bone: #ECE7DF;
+  --color-linea-white: #F6F3EE;
+  --color-linea-copper: #9B6748;
+  --color-linea-slate: #69645E;
+
+  --font-linea-display: "Sora", system-ui, sans-serif;
+  --font-linea-body: "DM Sans", system-ui, sans-serif;
+  --font-linea-arabic: "Tajawal", system-ui, sans-serif;
 }
 
 :root {
@@ -93,6 +104,19 @@ body {
 
 .font-dar-arabic {
   font-family: var(--font-dar-arabic);
+}
+
+/* LINEA Barbershop Demo Typography Utilities */
+.font-linea-display {
+  font-family: var(--font-linea-display);
+}
+
+.font-linea-body {
+  font-family: var(--font-linea-body);
+}
+
+.font-linea-arabic {
+  font-family: var(--font-linea-arabic);
 }
 
 /* Restrained transitions */

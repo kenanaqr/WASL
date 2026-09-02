@@ -1,5 +1,6 @@
 import React from 'react';
 import interiorImg from '../../../assets/demos/restaurant/interior.jpg';
+import atmosphereImg from '../../../assets/demos/restaurant/atmosphere.jpg';
 
 export const RestaurantGallery: React.FC = () => {
   return (
@@ -31,10 +32,15 @@ export const RestaurantGallery: React.FC = () => {
           </div>
           
           <div className="md:col-span-5 flex flex-col gap-4 sm:gap-6">
-            {/* Top right smaller image (Atmosphere / placeholder) */}
+            {/* Top right smaller image (Atmosphere) */}
             <div className="h-64 md:h-2/3">
-              <div className="h-full w-full overflow-hidden rounded-sm bg-[#1a1917] flex items-center justify-center border border-dar-brass/10">
-                <span className="font-dar-body text-xs text-dar-stone/40 uppercase tracking-[0.2em]">Atmosphere Placeholder</span>
+              <div className="h-full w-full overflow-hidden rounded-sm bg-dar-stone/5">
+                <img
+                  src={atmosphereImg}
+                  alt="DAR Dining Atmosphere"
+                  className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
+                  loading="lazy"
+                />
               </div>
             </div>
             
