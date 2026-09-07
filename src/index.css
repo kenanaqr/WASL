@@ -47,6 +47,20 @@
   --font-linea-display: "Sora", system-ui, sans-serif;
   --font-linea-body: "DM Sans", system-ui, sans-serif;
   --font-linea-arabic: "Tajawal", system-ui, sans-serif;
+
+  /* Three Brothers */
+  --color-tb-white: #faf8f5;
+  --color-tb-cream: #f2efe9;
+  --color-tb-olive: #5e6744;
+  --color-tb-orange: #d15d27;
+  --color-tb-orange-light: #e47a4a;
+  --color-tb-burgundy: #6f2626;
+  --color-tb-charcoal: #2a2c27;
+  --color-tb-charcoal-light: #62645d;
+  --color-tb-sage: #89906f;
+
+  --font-tb-display: "Oswald", sans-serif;
+  --font-tb-body: "Inter", system-ui, sans-serif;
 }
 
 :root {
