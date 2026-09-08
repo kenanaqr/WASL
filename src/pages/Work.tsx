@@ -1,56 +1,110 @@
 import React from 'react';
-import { siteConfig } from '../data/siteConfig';
+import naraHero from '../assets/demos/cafe/hero.jpg';
+import darHero from '../assets/demos/restaurant/hero.jpg';
+import lineaHero from '../assets/demos/barbershop/hero.jpg';
+import tbHero from '../assets/three-brothers/tb_hero_seafood.jpg';
 
 interface PageProps {
   onNavigate: (path: string) => void;
 }
 
+const projects = [
+  {
+    id: 'cafe',
+    name: 'NARA',
+    arabicName: 'نارا',
+    type: 'Café',
+    tag: 'Concept',
+    description: 'Digital menu, ambiance showcase, and table reservations for coffee shops.',
+    image: naraHero,
+    path: '/demos/cafe',
+  },
+  {
+    id: 'restaurant',
+    name: 'DAR',
+    arabicName: 'دار',
+    type: 'Restaurant',
+    tag: 'Concept',
+    description: 'Culinary showcase, online ordering demo, and dining bookings.',
+    image: darHero,
+    path: '/demos/restaurant',
+  },
+  {
+    id: 'barbershop',
+    name: 'LINEA',
+    arabicName: 'لاينا',
+    type: 'Barbershop',
+    tag: 'Concept',
+    description: 'Grooming service menus, stylist profiles, and appointment scheduling.',
+    image: lineaHero,
+    path: '/demos/barbershop',
+  },
+  {
+    id: 'three-brothers',
+    name: 'Three Brothers',
+    arabicName: '',
+    type: 'Restaurant',
+    tag: 'Client Project',
+    description: 'Seafood dinners, crispy whole wings, chicken tenders, burgers, and sandwiches — prepared fresh to order in Louisville.',
+    image: tbHero,
+    path: '/demos/three-brothers',
+  }
+];
+
 export const WorkPage: React.FC<PageProps> = ({ onNavigate }) => {
   return (
-    <div className="py-16 sm:py-24">
+    <div className="py-16 sm:py-24 bg-alabaster min-h-screen">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
-            Selected Work & Prototypes
+          <p className="text-xs font-semibold uppercase tracking-wider text-charcoal-muted">
+            Selected Work
           </p>
-          <h1 className="mt-2 text-3xl font-extrabold tracking-tight text-neutral-950 sm:text-5xl">
+          <h1 className="mt-2 text-4xl font-extrabold tracking-tight text-charcoal sm:text-5xl">
             Our Work
           </h1>
-          <p className="mt-4 text-lg text-neutral-600">
+          <p className="mt-4 text-lg text-charcoal-muted">
             Explore our ready-to-deploy digital templates and live business prototypes. All live directly inside this application.
           </p>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
-          {siteConfig.demoLinks.map((demo) => (
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
+          {projects.map((project) => (
             <div
-              key={demo.id}
-              className="flex flex-col overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-xs"
+              key={project.id}
+              className="flex flex-col overflow-hidden rounded-2xl border border-sand/40 bg-white shadow-sm transition-all hover:shadow-md group"
             >
-              <div className="flex h-44 items-center justify-center bg-neutral-100 border-b border-neutral-100 p-6 text-center">
-                <div>
-                  <span className="text-3xl font-black text-neutral-300">WASL</span>
-                  <div className="mt-1 text-sm font-semibold text-neutral-700">{demo.name} Prototype</div>
-                </div>
+              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-100 border-b border-sand/20 cursor-pointer" onClick={() => onNavigate(project.path)}>
+                <img
+                  src={project.image}
+                  alt={`${project.name} ${project.type}`}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  loading="lazy"
+                />
               </div>
-              <div className="flex flex-1 flex-col justify-between p-6">
+              <div className="flex flex-1 flex-col justify-between p-7 sm:p-8">
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">
-                      Concept Demo
+                    <span className={`text-xs font-bold uppercase tracking-wider ${project.tag === 'Client Project' ? 'text-petrol' : 'text-charcoal-muted/70'}`}>
+                      {project.tag}
                     </span>
-                    <span className="text-xs font-semibold text-neutral-700">{demo.arabicName}</span>
+                    {project.arabicName && (
+                      <span className="text-sm font-semibold text-charcoal-muted font-arabic">{project.arabicName}</span>
+                    )}
                   </div>
-                  <h3 className="mt-2 text-xl font-bold text-neutral-900">{demo.name}</h3>
-                  <p className="mt-2 text-sm text-neutral-600">{demo.description}</p>
+                  <div className="mt-3 flex flex-wrap items-baseline gap-2">
+                    <h3 className="text-2xl font-bold tracking-tight text-charcoal">{project.name}</h3>
+                    <span className="text-sm font-medium text-charcoal-muted">· {project.type}</span>
+                  </div>
+                  <p className="mt-3 text-base text-charcoal-muted leading-relaxed line-clamp-2">{project.description}</p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-neutral-100">
+                <div className="mt-8 pt-6 border-t border-sand/30">
                   <button
                     type="button"
-                    onClick={() => onNavigate(demo.path)}
-                    className="w-full rounded-md bg-neutral-900 py-2.5 text-center text-sm font-medium text-white transition hover:bg-neutral-800"
+                    onClick={() => onNavigate(project.path)}
+                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-petrol py-3.5 text-sm font-medium text-alabaster transition-colors hover:bg-petrol-dark focus:outline-none focus:ring-2 focus:ring-petrol focus:ring-offset-2 focus:ring-offset-white"
                   >
-                    Open Live Demo &rarr;
+                    <span>View project</span>
+                    <span aria-hidden="true" className="text-lg leading-none">&rarr;</span>
                   </button>
                 </div>
               </div>
