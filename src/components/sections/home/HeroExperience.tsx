@@ -1,28 +1,15 @@
-import React, { useRef, useMemo } from 'react';
-import { useScrollProgress } from '../../../hooks/useScrollProgress';
-import logoPetrol from '../../../assets/logo-petrol.png';
-import logoSand from '../../../assets/logo-sand.png';
+import React, { useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import { useGSAP } from '@gsap/react';
+
 import waslLogo from '../../../assets/WASL logo.png';
 
-/**
- * Scroll-animation configuration.
- * Adjust these values to tune the feel of the convergence.
- */
-const CONFIG = {
-  /** Height of the scroll container on desktop (controls animation duration). */
-  desktopScrollHeight: '170vh',
-  /** Height of the scroll container on mobile (<768px). */
-  mobileScrollHeight: '150vh',
-  /** Desktop: horizontal separation distance per side (px). */
-  desktopSeparation: 140,
-  /** Mobile: vertical separation distance per side (px). */
-  mobileSeparation: 90,
-};
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
 /**
- * Attempt to detect mobile. We use this to switch between horizontal (desktop)
- * and vertical (mobile) convergence direction. The component also uses CSS
- * media queries for layout, so this is only for transform direction.
+ * Hook to detect mobile viewport.
  */
 function useIsMobile(): boolean {
   const [isMobile, setIsMobile] = React.useState(() =>
@@ -41,7 +28,7 @@ function useIsMobile(): boolean {
 }
 
 /**
- * Attempt to detect if the user prefers reduced motion.
+ * Hook to detect prefers-reduced-motion.
  */
 function usePrefersReducedMotion(): boolean {
   const [prefers, setPrefers] = React.useState(() =>
@@ -61,126 +48,130 @@ function usePrefersReducedMotion(): boolean {
   return prefers;
 }
 
-/**
- * Helper to calculate a cubic Bezier curve point
- */
-function getBezierPoint(t: number, p0: number, p1: number, p2: number, p3: number): number {
-  const u = 1 - t;
-  const tt = t * t;
-  const uu = u * u;
-  const uuu = uu * u;
-  const ttt = tt * t;
-
-  let p = uuu * p0;
-  p += 3 * uu * t * p1;
-  p += 3 * u * tt * p2;
-  p += ttt * p3;
-
-  return p;
-}
-
-/**
- * Map a value from one range to a clamped 0–1 range.
- */
-function mapRange(value: number, inMin: number, inMax: number): number {
-  const raw = (value - inMin) / (inMax - inMin);
-  return Math.max(0, Math.min(1, raw));
-}
-
 interface HeroExperienceProps {
   onNavigate: (path: string) => void;
 }
 
 export const HeroExperience: React.FC<HeroExperienceProps> = ({ onNavigate: _onNavigate }) => {
-  void _onNavigate; // Reserved for future CTA use within hero if needed
+  void _onNavigate;
 
   const containerRef = useRef<HTMLDivElement>(null);
-  const scrollProgress = useScrollProgress(containerRef);
   const isMobile = useIsMobile();
   const prefersReducedMotion = usePrefersReducedMotion();
 
-  // Compute all visual states from scroll progress
-  const state = useMemo(() => {
-    const p = scrollProgress;
+  // Desktop paths
+  const desktopPetrolPath = "M 100,300 Q 200,400 363,348 C 328,283 403,228 500,300 C 604,373 654,333 634,258";
+  const desktopSandPath = "M 900,300 Q 800,400 634,348 C 669,283 594,228 500,300 C 394,373 344,333 364,258";
 
-    // Logo convergence: 0.00 → 0.80
-    // We want the primary convergence to happen here, slowing down significantly at the end.
-    const convergenceRaw = mapRange(p, 0, 0.80);
-    // Custom easing: fast start, very slow precise finish
-    const convergence = 1 - Math.pow(1 - convergenceRaw, 4);
+  // Mobile paths
+  const mobilePetrolPath = "M 300,100 Q 50,300 163,548 C 128,483 203,428 300,500 C 404,573 454,533 434,458";
+  const mobileSandPath = "M 300,900 Q 550,700 434,548 C 469,483 394,428 300,500 C 194,573 144,533 164,458";
 
-    // Labels fade out gradually
-    const labelsOpacity = 1 - mapRange(p, 0.20, 0.50);
+  const petrolPath = isMobile ? mobilePetrolPath : desktopPetrolPath;
+  const sandPath = isMobile ? mobileSandPath : desktopSandPath;
+  
+  const viewBox = isMobile ? "0 0 600 1000" : "0 0 1000 600";
+  const logoX = isMobile ? 123.5 : 323.5;
+  const logoY = isMobile ? 383 : 183;
+  const logoWidth = 353;
+  const logoHeight = 234;
 
-    // Scroll indicator fades out immediately
-    const scrollIndicatorOpacity = 1 - mapRange(p, 0.0, 0.10);
+  const searchParams = new URLSearchParams(typeof window !== 'undefined' ? window.location.search : '');
+  const isDebug = searchParams.has('debugHero');
+  const debugProgressRef = useRef<HTMLDivElement>(null);
 
-    // Crossfade to original logo at the very end
-    const crossfadeProgress = mapRange(p, 0.78, 0.85);
+  useGSAP(() => {
+    if (prefersReducedMotion) return;
 
-    // Wordmark "WASL" and tagline fade in
-    const wordmarkOpacity = mapRange(p, 0.82, 0.88);
-    const taglineOpacity = mapRange(p, 0.86, 0.94);
+    const paths = gsap.utils.toArray<SVGPathElement>('.draw-path');
+    paths.forEach(p => {
+      const length = p.getTotalLength();
+      gsap.set(p, { strokeDasharray: length, strokeDashoffset: length });
+    });
 
-    // ─── CHOREOGRAPHY (MAGNETIC ARC + WEAVE) ───
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1, 
+        onUpdate: (self) => {
+          if (isDebug && debugProgressRef.current) {
+            debugProgressRef.current.innerText = `Scroll: ${self.progress.toFixed(3)} | Time: ${tl.time().toFixed(1)}s`;
+          }
+        }
+      }
+    });
+
+    // Master mapping: timeline duration 100 = 0% to 100% scroll
     
-    // We animate t from 0 to 1 based on convergence
-    const t = convergence;
+    // Labels for absolute clarity
+    tl.addLabel("start", 0);
+    tl.addLabel("labels-fade", 5);
+    tl.addLabel("motion-start", 10);
+    tl.addLabel("handoff", 95);
+    tl.addLabel("end", 100);
 
-    // Desktop: Horizontal sweeping arc
-    // Mobile: Vertical sweeping arc
+    // Initial labels fade out
+    tl.to('.initial-label', { opacity: 0, duration: 15, ease: "power1.inOut" }, "labels-fade");
+
+    // TRUE VECTOR DRAWING PHASE
+    // We no longer mask a PNG. We literally draw the vector ribbon. This prevents any "forward leaking" of geometry.
+    const pathDuration = 73;
     
-    // Petrol (Left/Top piece)
-    const pStartX = isMobile ? -30 : -200;
-    const pStartY = isMobile ? -150 : -80;
-    const pCp1X = isMobile ? -80 : -100;
-    const pCp1Y = isMobile ? -50 : -150;
-    const pCp2X = isMobile ? 20 : 50;
-    const pCp2Y = isMobile ? -20 : -20;
+    // The Dot (Leading Edge)
+    tl.to('.dot-petrol', {
+      motionPath: { path: '#master-petrol', align: '#master-petrol', alignOrigin: [0.5, 0.5] },
+      duration: pathDuration, ease: "power2.inOut"
+    }, "motion-start");
     
-    const petrolX = getBezierPoint(t, pStartX, pCp1X, pCp2X, 0);
-    const petrolY = getBezierPoint(t, pStartY, pCp1Y, pCp2Y, 0);
-    const petrolRotate = (1 - t) * (isMobile ? -25 : -15);
-    const petrolScale = 1 + ((1 - t) * 0.15); // starts 15% larger
+    tl.to('.dot-sand', {
+      motionPath: { path: '#master-sand', align: '#master-sand', alignOrigin: [0.5, 0.5] },
+      duration: pathDuration, ease: "power2.inOut"
+    }, "motion-start");
 
-    // Sand (Right/Bottom piece)
-    const sStartX = isMobile ? 30 : 200;
-    const sStartY = isMobile ? 150 : 80;
-    const sCp1X = isMobile ? 80 : 100;
-    const sCp1Y = isMobile ? 50 : 150;
-    const sCp2X = isMobile ? -20 : -50;
-    const sCp2Y = isMobile ? 20 : 20;
+    // Thin trailing line
+    tl.to('.thin-petrol, .thin-sand', { 
+      strokeDashoffset: 0, duration: pathDuration, ease: "power2.inOut" 
+    }, "motion-start");
 
-    const sandX = getBezierPoint(t, sStartX, sCp1X, sCp2X, 0);
-    const sandY = getBezierPoint(t, sStartY, sCp1Y, sCp2Y, 0);
-    const sandRotate = (1 - t) * (isMobile ? 25 : 15);
-    const sandScale = 1 + ((1 - t) * 0.15); // starts 15% larger
+    // Progressive thicker vector strokes (The Tapered Brush)
+    const lagDelays = [4, 8, 12]; 
+    const widths = [15, 30, 50];
+    
+    widths.forEach((width, index) => {
+      const delay = lagDelays[index];
+      const startTime = 10 + delay;
+      
+      // Hide the thick paths initially to prevent round-linecap dot artifacts at origin
+      gsap.set(`.thick-petrol-${width}, .thick-sand-${width}`, { opacity: 0 });
+      tl.set(`.thick-petrol-${width}, .thick-sand-${width}`, { opacity: 1 }, startTime);
 
-    // Mask expansion: the ribbons reveal themselves as they come in.
-    // Starts at 40% revealed, grows to 100% revealed.
-    const maskSize = 40 + (convergence * 60);
+      tl.to(`.thick-petrol-${width}, .thick-sand-${width}`, { 
+        strokeDashoffset: 0, duration: pathDuration, ease: "power2.inOut" 
+      }, startTime);
+    });
 
-    // To prevent the "Lego piece" look, we gently fade the opacity
-    // of the pieces themselves just at the very beginning
-    const pieceOpacity = mapRange(p, 0, 0.1) + (p > 0.1 ? 1 : 0); // 0->1 in first 10%
+    // FIDELITY HANDOFF (95 - 100)
+    // The thickest path finishes exactly at 10 + 12 + 73 = 95s.
+    // The vector stage perfectly crossfades into the exact raster WASL logo.
+    tl.to('.vector-stage', { opacity: 0, duration: 5, ease: "none" }, "handoff");
+    tl.to('.composed-logo', { opacity: 1, duration: 5, ease: "none" }, "handoff");
 
-    return {
-      convergence,
-      labelsOpacity,
-      scrollIndicatorOpacity,
-      crossfadeProgress,
-      wordmarkOpacity,
-      taglineOpacity,
-      petrolX, petrolY, petrolRotate, petrolScale,
-      sandX, sandY, sandRotate, sandScale,
-      maskSize,
-      pieceOpacity: Math.min(1, pieceOpacity),
-    };
-  }, [scrollProgress, isMobile]);
+    // Final Text gracefully fades in
+    tl.to('.final-text', { opacity: 1, duration: 4, ease: "power1.out" }, 96);
 
-  // ──────────────────────────────────────────────────────
-  // REDUCED MOTION: Show the completed state immediately
-  // ──────────────────────────────────────────────────────
+    // Development visual test mode (freeze at progress via query param)
+    const urlProgress = searchParams.get('heroProgress');
+    if (isDebug && urlProgress) {
+      setTimeout(() => {
+        tl.scrollTrigger?.disable();
+        tl.progress(parseFloat(urlProgress));
+      }, 500);
+    }
+    
+  }, { dependencies: [isMobile, prefersReducedMotion], scope: containerRef });
+
   if (prefersReducedMotion) {
     return (
       <section className="relative bg-alabaster">
@@ -201,164 +192,101 @@ export const HeroExperience: React.FC<HeroExperienceProps> = ({ onNavigate: _onN
     );
   }
 
-  // ──────────────────────────────────────────────────────
-  // ANIMATED VERSION
-  // ──────────────────────────────────────────────────────
-  const scrollHeight = isMobile ? CONFIG.mobileScrollHeight : CONFIG.desktopScrollHeight;
-
-  // The CSS mask creates soft edges so they don't look like rectangular cutouts when separated.
-  const softMaskStyle = {
-    WebkitMaskImage: `radial-gradient(circle, black ${state.maskSize - 20}%, transparent ${state.maskSize + 10}%)`,
-    maskImage: `radial-gradient(circle, black ${state.maskSize - 20}%, transparent ${state.maskSize + 10}%)`,
-  };
+  const scrollHeight = isMobile ? '160vh' : '180vh';
 
   return (
     <section className="relative bg-alabaster">
-      <h1 className="sr-only" style={{ opacity: state.taglineOpacity > 0.5 ? 1 : 0 }}>
-        Bringing businesses closer to their customers.
-      </h1>
+      <h1 className="sr-only">Bringing businesses closer to their customers.</h1>
 
-      <div ref={containerRef} style={{ height: scrollHeight }} className="relative">
-        <div className="sticky top-0 flex h-screen flex-col items-center justify-center overflow-hidden">
+      {isDebug && (
+        <div 
+          ref={debugProgressRef}
+          className="fixed top-4 right-4 z-50 bg-black text-white px-4 py-2 font-mono text-sm rounded shadow-lg pointer-events-none"
+        >
+          Scroll: 0.000 | Time: 0.0s
+        </div>
+      )}
 
-          {/* ─── Labels ─── */}
-          <div
-            className="absolute z-10 text-center will-change-transform"
-            style={{
-              opacity: state.labelsOpacity,
-              ...(isMobile
-                ? { top: '15%', left: '50%', transform: `translate(-50%, ${state.convergence * 20}px)` }
-                : { top: '30%', left: '15%', transform: `translate(${state.convergence * 30}px, 0)` }),
-            }}
-          >
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-charcoal/60">
-              YOUR BUSINESS
-            </p>
-            <p className="mt-1 text-sm sm:text-base font-medium text-petrol/50 font-arabic">
-              عملك
-            </p>
-          </div>
-
-          <div
-            className="absolute z-10 text-center will-change-transform"
-            style={{
-              opacity: state.labelsOpacity,
-              ...(isMobile
-                ? { bottom: '15%', left: '50%', transform: `translate(-50%, ${state.convergence * -20}px)` }
-                : { top: '30%', right: '15%', transform: `translate(${state.convergence * -30}px, 0)` }),
-            }}
-          >
-            <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-charcoal/60">
-              YOUR CUSTOMERS
-            </p>
-            <p className="mt-1 text-sm sm:text-base font-medium text-petrol/50 font-arabic">
-              عملاؤك
-            </p>
-          </div>
-
-          {/* ─── Animation Container ─── */}
-          <div className="relative flex items-center justify-center" aria-hidden="true">
-            {/* Petrol half */}
-            <img
-              src={logoPetrol}
-              alt=""
-              className="absolute h-auto will-change-transform"
-              style={{
-                width: isMobile ? '220px' : '320px',
-                transform: `translate(${state.petrolX}px, ${state.petrolY}px) rotate(${state.petrolRotate}deg) scale(${state.petrolScale})`,
-                opacity: (1 - state.crossfadeProgress) * state.pieceOpacity,
-                zIndex: 2,
-                ...softMaskStyle,
-              }}
-              draggable={false}
-            />
-
-            {/* Sand half */}
-            <img
-              src={logoSand}
-              alt=""
-              className="absolute h-auto will-change-transform"
-              style={{
-                width: isMobile ? '220px' : '320px',
-                transform: `translate(${state.sandX}px, ${state.sandY}px) rotate(${state.sandRotate}deg) scale(${state.sandScale})`,
-                opacity: (1 - state.crossfadeProgress) * state.pieceOpacity,
-                zIndex: 1,
-                ...softMaskStyle,
-              }}
-              draggable={false}
-            />
-
-            {/* Original composed logo */}
-            <img
-              src={waslLogo}
-              alt=""
-              className="h-auto"
-              style={{
-                width: isMobile ? '220px' : '320px',
-                opacity: state.crossfadeProgress,
-                zIndex: 3,
-              }}
-              draggable={false}
-            />
-          </div>
-
-          {/* ─── Scroll indicator ─── */}
-          <div
-            className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 transition-none"
-            style={{ opacity: state.scrollIndicatorOpacity }}
-            aria-hidden="true"
-          >
-            <span className="text-[10px] sm:text-xs font-medium uppercase tracking-[0.15em] text-charcoal/40">
-              Scroll
-            </span>
-            <svg
-              className="h-4 w-4 text-charcoal/30"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={1.5}
+      <div ref={containerRef} style={{ height: scrollHeight }} className="relative w-full">
+        <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden">
+          
+          {/* SVG Vector Stage */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <svg 
+              viewBox={viewBox} 
+              className="w-full h-full max-h-[90vh] max-w-[1200px]"
+              preserveAspectRatio="xMidYMid meet"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7" />
+              <foreignObject 
+                x={isMobile ? 150 : 0} 
+                y={isMobile ? 10 : 200} 
+                width="300" height="80" 
+                className="initial-label"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-charcoal/60">YOUR BUSINESS</p>
+                  <p className="mt-1 text-sm sm:text-base font-medium text-petrol/50 font-arabic">عملك</p>
+                </div>
+              </foreignObject>
+
+              <foreignObject 
+                x={isMobile ? 150 : 700} 
+                y={isMobile ? 920 : 200} 
+                width="300" height="80" 
+                className="initial-label"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <p className="text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-charcoal/60">YOUR CUSTOMERS</p>
+                  <p className="mt-1 text-sm sm:text-base font-medium text-petrol/50 font-arabic">عملاؤك</p>
+                </div>
+              </foreignObject>
+
+              {/* TRUE VECTOR STAGE (No PNG Masking) */}
+              <g className="vector-stage">
+                {/* Master Paths (invisible, used for MotionPath tracking) */}
+                <path id="master-petrol" d={petrolPath} fill="none" />
+                <path id="master-sand" d={sandPath} fill="none" />
+
+                {/* Sand Ribbon (Bottom layer) */}
+                <path d={sandPath} fill="none" stroke="#dcccb6" strokeWidth="2" className="draw-path thin-sand" />
+                <path d={sandPath} fill="none" stroke="#dcccb6" strokeWidth="15" strokeLinecap="round" className="draw-path thick-sand-15" />
+                <path d={sandPath} fill="none" stroke="#dcccb6" strokeWidth="30" strokeLinecap="round" className="draw-path thick-sand-30" />
+                <path d={sandPath} fill="none" stroke="#dcccb6" strokeWidth="50" strokeLinecap="round" className="draw-path thick-sand-50" />
+
+                {/* Petrol Ribbon (Top layer) */}
+                <path d={petrolPath} fill="none" stroke="#18414b" strokeWidth="2" className="draw-path thin-petrol" />
+                <path d={petrolPath} fill="none" stroke="#18414b" strokeWidth="15" strokeLinecap="round" className="draw-path thick-petrol-15" />
+                <path d={petrolPath} fill="none" stroke="#18414b" strokeWidth="30" strokeLinecap="round" className="draw-path thick-petrol-30" />
+                <path d={petrolPath} fill="none" stroke="#18414b" strokeWidth="50" strokeLinecap="round" className="draw-path thick-petrol-50" />
+
+                {/* Leading Dots */}
+                <circle r="4" fill="#18414b" className="dot-petrol" />
+                <circle r="4" fill="#dcccb6" className="dot-sand" />
+              </g>
+
+              {/* Composed PNG Logo (crossfades exactly at the end for ultimate fidelity) */}
+              <g className="composed-logo" style={{ opacity: 0 }}>
+                <image 
+                  href={waslLogo} 
+                  x={logoX} y={logoY} 
+                  width={logoWidth} height={logoHeight} 
+                />
+              </g>
             </svg>
           </div>
 
-          {/* ─── Brand reveal: WASL wordmark ─── */}
-          <div
-            className="absolute flex flex-col items-center text-center transition-none"
-            style={{
-              opacity: state.wordmarkOpacity,
-              bottom: isMobile ? '28%' : '22%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-            }}
-          >
-            <p className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-petrol">
-              WASL
-            </p>
-            <p className="mt-0.5 text-sm sm:text-base font-medium text-petrol/70 font-arabic">
-              وصل
-            </p>
+          {/* Final Text Container */}
+          <div className="final-text absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{ opacity: 0 }}>
+            {/* Offset downwards so it sits below the final logo */}
+            <div className="mt-[280px] text-center">
+              <p className="text-2xl sm:text-3xl font-semibold tracking-tight text-petrol">WASL</p>
+              <p className="mt-1 text-base sm:text-lg font-medium text-petrol/80 font-arabic">وصل</p>
+              <h1 className="mt-6 text-xl sm:text-2xl font-medium tracking-tight text-charcoal/90 max-w-lg mx-auto">
+                Bringing businesses closer to their customers.
+              </h1>
+            </div>
           </div>
 
-          {/* ─── Tagline ─── */}
-          <div
-            className="absolute flex flex-col items-center text-center px-6 transition-none"
-            style={{
-              opacity: state.taglineOpacity,
-              bottom: isMobile ? '16%' : '12%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '100%',
-              maxWidth: '480px',
-            }}
-          >
-            <p className="text-base sm:text-lg lg:text-xl font-medium tracking-tight text-charcoal/80">
-              Bringing businesses closer to their customers.
-            </p>
-            <p className="mt-1.5 text-sm sm:text-base font-medium text-petrol/60 font-arabic">
-              نقرب الأعمال من عملائها.
-            </p>
-          </div>
         </div>
       </div>
     </section>
