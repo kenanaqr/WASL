@@ -33,6 +33,7 @@ export const ThreeBrothersHero: React.FC<ThreeBrothersHeroProps> = ({ onScrollTo
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* Left Column: Primary Messaging & CTAs */}
           <div className="lg:col-span-7">
+
             {/* Supporting Location Indicator */}
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 px-4 py-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-tb-orange animate-pulse" />

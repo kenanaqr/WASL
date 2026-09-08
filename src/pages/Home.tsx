@@ -1,15 +1,12 @@
 import React from 'react';
 import {
-  HeroSection,
-  IdeaSection,
-  ServicesSection,
-  WorkPreviewSection,
-  StartSimpleSection,
-  ProcessSection,
-  WhyWaslSection,
-  LocalSection,
-  CtaSection,
-} from '../components/sections';
+  HeroExperience,
+  WhatWeDoSection,
+  SelectedWorkSection,
+  BuildFurtherSection,
+  WhyWaslNew,
+  FinalCtaSection
+} from '../components/sections/home';
 
 interface HomePageProps {
   onNavigate: (path: string) => void;
@@ -17,33 +14,28 @@ interface HomePageProps {
 
 export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
-    <div>
-      {/* 1. Hero Section */}
-      <HeroSection onNavigate={onNavigate} />
+    <>
+      {/* 
+        The HeroExperience component contains the scroll-linked logo animation 
+        and the brand reveal. It handles both desktop and mobile states,
+        as well as reduced-motion preferences.
+      */}
+      <HeroExperience onNavigate={onNavigate} />
 
-      {/* 2. The Idea Section */}
-      <IdeaSection />
+      {/* Services summary */}
+      <WhatWeDoSection />
 
-      {/* 3. What We Do (Four ways of creating connection) */}
-      <ServicesSection />
+      {/* Selected Work (NARA, DAR, LINEA) */}
+      <SelectedWorkSection onNavigate={onNavigate} />
 
-      {/* 4. Our Work (Cafe, Restaurant, Barbershop Concept Previews) */}
-      <WorkPreviewSection onNavigate={onNavigate} />
+      {/* Start Simple / Build Further */}
+      <BuildFurtherSection />
 
-      {/* 5. Start Simple, Build Further */}
-      <StartSimpleSection />
+      {/* Why WASL (4 proof points) */}
+      <WhyWaslNew />
 
-      {/* 6. How WASL Works (01 Understand - 02 Build - 03 Connect - 04 Evolve) */}
-      <ProcessSection />
-
-      {/* 7. Why WASL (Connection vs standard agency websites) */}
-      <WhyWaslSection />
-
-      {/* 8. About / Local Connection (Rooted in Amman, Jordan) */}
-      <LocalSection />
-
-      {/* 9. Final CTA (Talk to WASL & WhatsApp) */}
-      <CtaSection onNavigate={onNavigate} />
-    </div>
+      {/* Final CTA */}
+      <FinalCtaSection onNavigate={onNavigate} />
+    </>
   );
 };

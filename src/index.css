@@ -133,6 +133,10 @@ body {
   font-family: var(--font-linea-arabic);
 }
 
+.will-change-transform {
+  will-change: transform;
+}
+
 /* Restrained transitions */
 @media (prefers-reduced-motion: reduce) {
   *,
