@@ -36,11 +36,11 @@ export const CafeNavbar: React.FC<CafeNavbarProps> = ({ onNavigate, onScrollTo }
 
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand */}
-        <div className="flex-1 flex justify-center md:justify-start">
+        <div className="flex-1 flex justify-center md:justify-center">
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, 'home')}
-            className="flex flex-col items-center md:items-start"
+            className="flex flex-col items-center"
           >
             <span className="font-cafe-display text-3xl font-medium tracking-tight text-cafe-espresso">
               NARA
@@ -52,7 +52,7 @@ export const CafeNavbar: React.FC<CafeNavbarProps> = ({ onNavigate, onScrollTo }
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex md:items-center md:gap-8 flex-1 justify-center">
+        <nav className="hidden md:flex md:items-center md:gap-8 absolute right-8">
           {navLinks.map((link) => (
             <a
               key={link.target}
@@ -63,22 +63,21 @@ export const CafeNavbar: React.FC<CafeNavbarProps> = ({ onNavigate, onScrollTo }
               {link.label}
             </a>
           ))}
-        </nav>
-
-        {/* CTA & Mobile Toggle */}
-        <div className="flex flex-1 justify-end items-center gap-4">
           <a
             href="#menu"
             onClick={(e) => handleNavClick(e, 'menu')}
-            className="hidden md:inline-flex rounded-sm bg-cafe-espresso px-5 py-2 font-cafe-body text-sm text-cafe-cream transition-colors hover:bg-cafe-terracotta"
+            className="rounded-sm bg-cafe-espresso px-5 py-2 font-cafe-body text-sm text-cafe-cream transition-colors hover:bg-cafe-terracotta"
           >
             View Menu
           </a>
+        </nav>
 
+        {/* Mobile Toggle */}
+        <div className="md:hidden absolute right-4 top-1/2 -translate-y-1/2">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-cafe-espresso p-2 -mr-2"
+            className="text-cafe-espresso p-2 transition-colors hover:text-cafe-terracotta"
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {mobileMenuOpen ? (
