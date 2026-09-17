@@ -6,3 +6,5 @@ export * from './Contact';
 export * from './demos/CafeDemo';
 export * from './demos/RestaurantDemo';
 export * from './demos/BarbershopDemo';
+export * from './KenanContact';
+export * from './MamduhContact';

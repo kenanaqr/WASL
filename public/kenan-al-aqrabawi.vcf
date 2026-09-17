@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Al Aqrabawi;Kenan;;;
+FN:Kenan Al Aqrabawi
+ORG:WASL
+TITLE:Co-Founder & CTO
+TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+962791071123:+962 79 107 1123
+EMAIL;TYPE=WORK,INTERNET:kenanaqr@wasljo.com
+URL;TYPE=WORK:https://wasl.kenanaqr.workers.dev/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/kenan-aqrabawi-7bb63b273/
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/kenan-aqrabawi-7bb63b273/
+X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/wasljo/
+URL;TYPE=Instagram:https://www.instagram.com/wasljo/
+NOTE:WASL | وصل - Co-Founder & CTO
+END:VCARD

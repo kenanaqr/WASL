@@ -6,6 +6,8 @@ import {
   WorkPage,
   AboutPage,
   ContactPage,
+  KenanContactPage,
+  MamduhContactPage,
   CafeDemo,
   RestaurantDemo,
   BarbershopDemo,
@@ -14,6 +16,14 @@ import { ThreeBrothersDemo } from './pages/demos/ThreeBrothersDemo';
 
 function App() {
   const { currentPath, navigate } = useRouter();
+
+  if (currentPath === '/contact/kenan') {
+    return <KenanContactPage onNavigate={navigate} />;
+  }
+
+  if (currentPath === '/contact/mamduh') {
+    return <MamduhContactPage onNavigate={navigate} />;
+  }
 
   if (currentPath === '/demos/cafe') {
     return <CafeDemo onNavigate={navigate} />;

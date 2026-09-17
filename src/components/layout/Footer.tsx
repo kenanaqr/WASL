@@ -87,23 +87,40 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </ul>
           </div>
 
-          {/* Direct Inquiries / Contact Placeholder */}
+          {/* Direct Inquiries / Contact */}
           <div>
             <h3 className="text-xs font-semibold uppercase tracking-wider text-sand">
-              Contact (Placeholder)
+              Contact
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-alabaster/75">
               <li>
                 <span className="text-sand/60 block text-xs">Phone</span>
-                <span className="font-mono text-xs">{siteConfig.contact.phone}</span>
+                <a
+                  href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, '')}`}
+                  className="font-mono text-xs hover:text-alabaster transition-colors"
+                >
+                  {siteConfig.contact.phone}
+                </a>
               </li>
               <li>
                 <span className="text-sand/60 block text-xs">WhatsApp</span>
-                <span className="font-mono text-xs">{siteConfig.contact.whatsapp}</span>
+                <a
+                  href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs hover:text-alabaster transition-colors"
+                >
+                  {siteConfig.contact.whatsapp}
+                </a>
               </li>
               <li>
                 <span className="text-sand/60 block text-xs">Email</span>
-                <span className="text-xs">{siteConfig.contact.email}</span>
+                <a
+                  href={`mailto:${siteConfig.contact.email}`}
+                  className="text-xs hover:text-alabaster transition-colors"
+                >
+                  {siteConfig.contact.email}
+                </a>
               </li>
               <li>
                 <span className="text-sand/60 block text-xs">Location</span>
