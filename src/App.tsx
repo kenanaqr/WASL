@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useRouter } from './router';
+import { updateSeo } from './seo';
 import { Layout } from './components/layout';
 import {
   HomePage,
@@ -15,6 +17,10 @@ import {
 
 function App() {
   const { currentPath, navigate } = useRouter();
+
+  useEffect(() => {
+    updateSeo(currentPath);
+  }, [currentPath]);
 
   if (currentPath === '/contact/kenan') {
     return <KenanContactPage onNavigate={navigate} />;
