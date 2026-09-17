@@ -53,12 +53,10 @@ export const MamduhContactPage: React.FC<MamduhContactPageProps> = () => {
       'ORG:WASL',
       'TITLE:Co-Founder & CMO',
       'TEL;TYPE=CELL,VOICE:+962797720319',
-      'TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+962797720319:+962 79 772 0319',
       'EMAIL;TYPE=INTERNET:mamduhak@wasljo.com',
-      `URL:${WASL_WEBSITE_URL}`,
-      `X-SOCIALPROFILE;TYPE=instagram:${WASL_INSTAGRAM_URL}`,
-      `URL;TYPE=Instagram:${WASL_INSTAGRAM_URL}`,
-      `NOTE:WASL | وصل - Co-Founder & CMO`,
+      'URL;TYPE=website:https://www.wasljo.com/',
+      'URL;TYPE=instagram:https://www.instagram.com/wasljo/',
+      'NOTE:WASL | وصل - Co-Founder & CMO',
       'END:VCARD',
     ].join('\r\n');
 

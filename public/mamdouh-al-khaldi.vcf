@@ -5,10 +5,8 @@ FN:Mamdouh Al Khaldi
 ORG:WASL
 TITLE:Co-Founder & CMO
 TEL;TYPE=CELL,VOICE:+962797720319
-TEL;TYPE=CELL,VOICE;VALUE=uri:tel:+962797720319:+962 79 772 0319
 EMAIL;TYPE=INTERNET:mamduhak@wasljo.com
-URL:https://wasl.kenanaqr.workers.dev/
-X-SOCIALPROFILE;TYPE=instagram:https://www.instagram.com/wasljo/
-URL;TYPE=Instagram:https://www.instagram.com/wasljo/
+URL;TYPE=website:https://www.wasljo.com/
+URL;TYPE=instagram:https://www.instagram.com/wasljo/
 NOTE:WASL | وصل - Co-Founder & CMO
 END:VCARD
