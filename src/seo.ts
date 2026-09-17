@@ -1,3 +1,5 @@
+import { siteConfig } from './data/siteConfig';
+
 export interface SeoMetadata {
   title: string;
   description: string;
@@ -60,6 +62,54 @@ export const NOT_FOUND_SEO: SeoMetadata = {
 };
 
 const CANONICAL_BASE = 'https://wasljo.com';
+const ORG_SCHEMA_ID = 'wasl-organization-schema';
+
+export function getOrganizationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteConfig.contact.website}#organization`,
+    'name': siteConfig.companyName,
+    'alternateName': siteConfig.arabicName,
+    'url': siteConfig.contact.website,
+    'logo': `${siteConfig.contact.website}favicon.svg`,
+    'description': siteConfig.description,
+    'telephone': siteConfig.contact.phone,
+    'email': siteConfig.contact.email,
+    'address': {
+      '@type': 'PostalAddress',
+      'addressLocality': 'Amman',
+      'addressCountry': 'JO',
+    },
+    'sameAs': [
+      siteConfig.contact.instagram,
+    ],
+  };
+}
+
+export function setOrganizationSchema(enable: boolean): void {
+  if (typeof document === 'undefined') return;
+
+  const existingScripts = document.querySelectorAll(`script#${ORG_SCHEMA_ID}`);
+
+  if (enable) {
+    const jsonString = JSON.stringify(getOrganizationSchema(), null, 2);
+    if (existingScripts.length > 0) {
+      existingScripts[0].textContent = jsonString;
+      for (let i = 1; i < existingScripts.length; i++) {
+        existingScripts[i].remove();
+      }
+    } else {
+      const script = document.createElement('script');
+      script.id = ORG_SCHEMA_ID;
+      script.type = 'application/ld+json';
+      script.textContent = jsonString;
+      document.head.appendChild(script);
+    }
+  } else {
+    existingScripts.forEach((el) => el.remove());
+  }
+}
 
 export function getCanonicalUrl(path: string): string {
   if (path === '/') {
@@ -107,6 +157,9 @@ export function updateSeo(path: string): void {
 
   const normalizedPath =
     path.length > 1 && path.endsWith('/') ? path.slice(0, -1) : path || '/';
+
+  // Manage Organization JSON-LD on homepage only
+  setOrganizationSchema(normalizedPath === '/');
 
   const seo = SEO_DATA[normalizedPath];
 
@@ -157,3 +210,4 @@ export function updateSeo(path: string): void {
     setMetaTag('name', 'twitter:description', NOT_FOUND_SEO.description);
   }
 }
+
