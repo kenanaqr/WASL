@@ -11,9 +11,15 @@ import {
   BarbershopDemo,
 } from './pages';
 import { ThreeBrothersDemo } from './pages/demos/ThreeBrothersDemo';
+import KenanContactPage from './pages/KenanContact';
 
 function App() {
   const { currentPath, navigate } = useRouter();
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+
+  if (pathname === '/contact/kenan' || pathname === '/contact/kenan/') {
+    return <KenanContactPage />;
+  }
 
   if (currentPath === '/demos/cafe') {
     return <CafeDemo onNavigate={navigate} />;
