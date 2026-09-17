@@ -1,5 +1,5 @@
 import React from 'react';
-import touchpointImg from '../../../assets/demos/restaurant/touchpoint.jpg';
+import touchpointImg from '../../../assets/demos/restaurant/touchpoint.webp';
 
 export const RestaurantDigitalConnection: React.FC = () => {
   return (

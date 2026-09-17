@@ -1,7 +1,7 @@
 import React from 'react';
-import atmosphereImg from '../../../assets/demos/cafe/atmosphere.jpg';
-import counterImg from '../../../assets/demos/cafe/counter.jpg';
-import pastryImg from '../../../assets/demos/cafe/pastry_display.jpg';
+import atmosphereImg from '../../../assets/demos/cafe/atmosphere.webp';
+import counterImg from '../../../assets/demos/cafe/counter.webp';
+import pastryImg from '../../../assets/demos/cafe/pastry_display.webp';
 
 export const CafeGallery: React.FC = () => {
   return (

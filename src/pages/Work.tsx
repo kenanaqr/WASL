@@ -1,14 +1,26 @@
 import React from 'react';
-import naraHero from '../assets/demos/cafe/hero.jpg';
-import darHero from '../assets/demos/restaurant/hero.jpg';
-import lineaHero from '../assets/demos/barbershop/hero.jpg';
-import tbHero from '../assets/three-brothers/tb_hero_seafood.jpg';
+import naraHero from '../assets/demos/cafe/hero.webp';
+import darHero from '../assets/demos/restaurant/hero.webp';
+import lineaHero from '../assets/demos/barbershop/hero.webp';
+import tbHero from '../assets/three-brothers/tb_hero_seafood.webp';
 
 interface PageProps {
   onNavigate: (path: string) => void;
 }
 
-const projects = [
+interface ProjectItem {
+  id: string;
+  name: string;
+  arabicName: string;
+  type: string;
+  tag: string;
+  description: string;
+  image: string;
+  path?: string;
+  externalUrl?: string;
+}
+
+const projects: ProjectItem[] = [
   {
     id: 'cafe',
     name: 'NARA',
@@ -47,7 +59,7 @@ const projects = [
     tag: 'Client Project',
     description: 'Seafood dinners, crispy whole wings, chicken tenders, burgers, and sandwiches — prepared fresh to order in Louisville.',
     image: tbHero,
-    path: '/demos/three-brothers',
+    externalUrl: 'https://3brothers.rest',
   }
 ];
 
@@ -73,14 +85,39 @@ export const WorkPage: React.FC<PageProps> = ({ onNavigate }) => {
               key={project.id}
               className="flex flex-col overflow-hidden rounded-2xl border border-sand/40 bg-white shadow-sm transition-all hover:shadow-md group"
             >
-              <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-100 border-b border-sand/20 cursor-pointer" onClick={() => onNavigate(project.path)}>
-                <img
-                  src={project.image}
-                  alt={`${project.name} ${project.type}`}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-              </div>
+              {project.externalUrl ? (
+                <a
+                  href={project.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-100 border-b border-sand/20 cursor-pointer block"
+                  aria-label={`View ${project.name} live website`}
+                >
+                  <img
+                    src={project.image}
+                    alt={`${project.name} ${project.type}`}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </a>
+              ) : (
+                <a
+                  href={project.path}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (project.path) onNavigate(project.path);
+                  }}
+                  className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-100 border-b border-sand/20 cursor-pointer block"
+                  aria-label={`View ${project.name} project`}
+                >
+                  <img
+                    src={project.image}
+                    alt={`${project.name} ${project.type}`}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    loading="lazy"
+                  />
+                </a>
+              )}
               <div className="flex flex-1 flex-col justify-between p-7 sm:p-8">
                 <div>
                   <div className="flex items-center justify-between">
@@ -98,14 +135,29 @@ export const WorkPage: React.FC<PageProps> = ({ onNavigate }) => {
                   <p className="mt-3 text-base text-charcoal-muted leading-relaxed line-clamp-2">{project.description}</p>
                 </div>
                 <div className="mt-8 pt-6 border-t border-sand/30">
-                  <button
-                    type="button"
-                    onClick={() => onNavigate(project.path)}
-                    className="w-full flex items-center justify-center gap-2 rounded-xl bg-petrol py-3.5 text-sm font-medium text-alabaster transition-colors hover:bg-petrol-dark focus:outline-none focus:ring-2 focus:ring-petrol focus:ring-offset-2 focus:ring-offset-white"
-                  >
-                    <span>View project</span>
-                    <span aria-hidden="true" className="text-lg leading-none">&rarr;</span>
-                  </button>
+                  {project.externalUrl ? (
+                    <a
+                      href={project.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full flex items-center justify-center gap-2 rounded-xl bg-petrol py-3.5 text-sm font-medium text-alabaster transition-colors hover:bg-petrol-dark focus:outline-none focus:ring-2 focus:ring-petrol focus:ring-offset-2 focus:ring-offset-white"
+                    >
+                      <span>View project</span>
+                      <span aria-hidden="true" className="text-lg leading-none">&rarr;</span>
+                    </a>
+                  ) : (
+                    <a
+                      href={project.path}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        if (project.path) onNavigate(project.path);
+                      }}
+                      className="w-full flex items-center justify-center gap-2 rounded-xl bg-petrol py-3.5 text-sm font-medium text-alabaster transition-colors hover:bg-petrol-dark focus:outline-none focus:ring-2 focus:ring-petrol focus:ring-offset-2 focus:ring-offset-white"
+                    >
+                      <span>View project</span>
+                      <span aria-hidden="true" className="text-lg leading-none">&rarr;</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

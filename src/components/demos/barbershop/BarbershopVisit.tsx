@@ -1,6 +1,6 @@
 import React from 'react';
 import { lineaConfig } from '../../../data/demos/barbershopConfig';
-import interiorImg from '../../../assets/demos/barbershop/interior.jpg';
+import interiorImg from '../../../assets/demos/barbershop/interior.webp';
 
 export const BarbershopVisit: React.FC = () => {
   return (

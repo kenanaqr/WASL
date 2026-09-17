@@ -1,6 +1,6 @@
 import React from 'react';
 import { darConfig } from '../../../data/demos/restaurantConfig';
-import heroImg from '../../../assets/demos/restaurant/hero.jpg';
+import heroImg from '../../../assets/demos/restaurant/hero.webp';
 
 interface RestaurantHeroProps {
   onScrollTo: (id: string) => void;

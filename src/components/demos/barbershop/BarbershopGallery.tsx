@@ -1,8 +1,8 @@
 import React from 'react';
-import haircutImg from '../../../assets/demos/barbershop/haircut.jpg';
-import resultImg from '../../../assets/demos/barbershop/result.jpg';
-import beardImg from '../../../assets/demos/barbershop/beard.jpg';
-import toolsImg from '../../../assets/demos/barbershop/tools.jpg';
+import haircutImg from '../../../assets/demos/barbershop/haircut.webp';
+import resultImg from '../../../assets/demos/barbershop/result.webp';
+import beardImg from '../../../assets/demos/barbershop/beard.webp';
+import toolsImg from '../../../assets/demos/barbershop/tools.webp';
 
 export const BarbershopGallery: React.FC = () => {
   return (

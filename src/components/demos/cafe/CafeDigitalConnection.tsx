@@ -1,5 +1,5 @@
 import React from 'react';
-import qrStandImg from '../../../assets/demos/cafe/qr_stand.jpg';
+import qrStandImg from '../../../assets/demos/cafe/qr_stand.webp';
 
 export const CafeDigitalConnection: React.FC = () => {
   return (

@@ -1,8 +1,8 @@
 import React from 'react';
 import { darConfig } from '../../../data/demos/restaurantConfig';
-import eggplantImg from '../../../assets/demos/restaurant/eggplant.jpg';
-import lambImg from '../../../assets/demos/restaurant/lamb.jpg';
-import basbousaImg from '../../../assets/demos/restaurant/basbousa.jpg';
+import eggplantImg from '../../../assets/demos/restaurant/eggplant.webp';
+import lambImg from '../../../assets/demos/restaurant/lamb.webp';
+import basbousaImg from '../../../assets/demos/restaurant/basbousa.webp';
 
 export const RestaurantSignatures: React.FC = () => {
   // We extract the specific signature items from the config

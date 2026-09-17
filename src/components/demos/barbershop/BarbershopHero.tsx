@@ -1,6 +1,6 @@
 import React from 'react';
 import { lineaConfig } from '../../../data/demos/barbershopConfig';
-import heroImg from '../../../assets/demos/barbershop/hero.jpg';
+import heroImg from '../../../assets/demos/barbershop/hero.webp';
 
 interface BarbershopHeroProps {
   onScrollTo: (id: string) => void;

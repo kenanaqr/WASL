@@ -1,7 +1,7 @@
 import React from 'react';
-import signatureImg from '../../../assets/demos/cafe/signature.jpg';
-import v60Img from '../../../assets/demos/cafe/v60.jpg';
-import cheesecakeImg from '../../../assets/demos/cafe/cheesecake.jpg';
+import signatureImg from '../../../assets/demos/cafe/signature.webp';
+import v60Img from '../../../assets/demos/cafe/v60.webp';
+import cheesecakeImg from '../../../assets/demos/cafe/cheesecake.webp';
 
 export const CafeSignatures: React.FC = () => {
   return (

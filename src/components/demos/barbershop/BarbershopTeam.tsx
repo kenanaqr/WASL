@@ -1,6 +1,6 @@
 import React from 'react';
 import { lineaConfig } from '../../../data/demos/barbershopConfig';
-import barberImg from '../../../assets/demos/barbershop/barber.jpg';
+import barberImg from '../../../assets/demos/barbershop/barber.webp';
 
 export const BarbershopTeam: React.FC = () => {
   return (

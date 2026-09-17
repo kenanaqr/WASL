@@ -1,7 +1,7 @@
 import React from 'react';
-import naraHero from '../../../assets/demos/cafe/hero.jpg';
-import darHero from '../../../assets/demos/restaurant/hero.jpg';
-import lineaHero from '../../../assets/demos/barbershop/hero.jpg';
+import naraHero from '../../../assets/demos/cafe/hero.webp';
+import darHero from '../../../assets/demos/restaurant/hero.webp';
+import lineaHero from '../../../assets/demos/barbershop/hero.webp';
 
 interface ProjectProps {
   name: string;

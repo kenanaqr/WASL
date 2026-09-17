@@ -1,5 +1,5 @@
 import React from 'react';
-import touchpointImg from '../../../assets/demos/barbershop/touchpoint.jpg';
+import touchpointImg from '../../../assets/demos/barbershop/touchpoint.webp';
 
 export const BarbershopConnection: React.FC = () => {
   return (

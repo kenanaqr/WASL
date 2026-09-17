@@ -176,7 +176,7 @@ export const ContactPage: React.FC<PageProps> = ({ onNavigate }) => {
 
                 <div className="mt-6 pt-4 border-t border-sand/20">
                   <a
-                    href={`#${founder.path}`}
+                    href={founder.path}
                     onClick={(e) => {
                       if (onNavigate) {
                         e.preventDefault();

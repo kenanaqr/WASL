@@ -1,5 +1,5 @@
 import React from 'react';
-import toolsImg from '../../../assets/demos/barbershop/tools.jpg';
+import toolsImg from '../../../assets/demos/barbershop/tools.webp';
 
 export const BarbershopStory: React.FC = () => {
   return (

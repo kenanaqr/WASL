@@ -1,5 +1,5 @@
 import React from 'react';
-import exteriorImg from '../../../assets/demos/cafe/exterior.jpg';
+import exteriorImg from '../../../assets/demos/cafe/exterior.webp';
 
 export const CafeVisit: React.FC = () => {
   return (

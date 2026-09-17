@@ -40,6 +40,17 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
     setDemosDropdownOpen(false);
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (currentPath === '/') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      onNavigate('/');
+    }
+    setMobileMenuOpen(false);
+    setDemosDropdownOpen(false);
+  };
+
   const isDemoActive = currentPath.startsWith('/demos');
 
   return (
@@ -47,11 +58,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8 relative z-50">
         {/* Brand: Logo asset + Brand Name */}
         <a
-          href="#/"
-          onClick={(e) => {
-            e.preventDefault();
-            handleLinkClick('/');
-          }}
+          href="/"
+          onClick={handleLogoClick}
           className="flex items-center gap-3.5 group"
           aria-label="WASL | وصل Homepage"
         >
@@ -78,7 +86,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
             return (
               <a
                 key={link.path}
-                href={`#${link.path}`}
+                href={link.path}
                 onClick={(e) => {
                   e.preventDefault();
                   handleLinkClick(link.path);
@@ -130,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
                   return (
                     <a
                       key={demo.id}
-                      href={`#${demo.path}`}
+                      href={demo.path}
                       onClick={(e) => {
                         e.preventDefault();
                         handleLinkClick(demo.path);
@@ -156,7 +164,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
 
           {/* Primary Action Button */}
           <a
-            href="#/contact"
+            href="/contact"
             onClick={(e) => {
               e.preventDefault();
               handleLinkClick('/contact');
@@ -203,7 +211,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
             {siteConfig.navLinks.map((link) => (
               <a
                 key={link.path}
-                href={`#${link.path}`}
+                href={link.path}
                 onClick={(e) => {
                   e.preventDefault();
                   handleLinkClick(link.path);
@@ -224,7 +232,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
                 {siteConfig.demoLinks.map((demo) => (
                   <a
                     key={demo.id}
-                    href={`#${demo.path}`}
+                    href={demo.path}
                     onClick={(e) => {
                       e.preventDefault();
                       handleLinkClick(demo.path);
@@ -243,7 +251,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
 
           <div className="mt-8 mb-4 border-t border-transparent">
             <a
-              href="#/contact"
+              href="/contact"
               onClick={(e) => {
                 e.preventDefault();
                 handleLinkClick('/contact');

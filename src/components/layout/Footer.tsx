@@ -55,7 +55,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               {siteConfig.navLinks.map((link) => (
                 <li key={link.path}>
                   <a
-                    href={`#${link.path}`}
+                    href={link.path}
                     onClick={(e) => handleLinkClick(e, link.path)}
                     className="text-sm text-alabaster/75 hover:text-alabaster transition-colors duration-200"
                   >
@@ -75,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               {siteConfig.demoLinks.map((demo) => (
                 <li key={demo.id}>
                   <a
-                    href={`#${demo.path}`}
+                    href={demo.path}
                     onClick={(e) => handleLinkClick(e, demo.path)}
                     className="text-sm text-alabaster/75 hover:text-alabaster transition-colors duration-200 flex items-center gap-2"
                   >

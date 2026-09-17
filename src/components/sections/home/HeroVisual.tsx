@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import cafeTouchpoint from '../../../assets/demos/cafe/qr_stand.jpg';
-import restaurantTouchpoint from '../../../assets/demos/restaurant/touchpoint.jpg';
-import barberTouchpoint from '../../../assets/demos/barbershop/touchpoint.jpg';
+import cafeTouchpoint from '../../../assets/demos/cafe/qr_stand.webp';
+import restaurantTouchpoint from '../../../assets/demos/restaurant/touchpoint.webp';
+import barberTouchpoint from '../../../assets/demos/barbershop/touchpoint.webp';
 
 const images = [
   { src: cafeTouchpoint, alt: 'NARA Café digital touchpoint', label: 'NARA | Café' },

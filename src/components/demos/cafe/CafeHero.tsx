@@ -1,6 +1,6 @@
 import React from 'react';
 
-import heroImg from '../../../assets/demos/cafe/hero.jpg';
+import heroImg from '../../../assets/demos/cafe/hero.webp';
 
 interface CafeHeroProps {
   onScrollTo: (id: string) => void;

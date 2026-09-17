@@ -1,6 +1,6 @@
 import React from 'react';
 import { lineaConfig } from '../../../data/demos/barbershopConfig';
-import beardImg from '../../../assets/demos/barbershop/beard.jpg';
+import beardImg from '../../../assets/demos/barbershop/beard.webp';
 
 export const BarbershopSignature: React.FC = () => {
   const sig = lineaConfig.signature;

@@ -1,6 +1,6 @@
 import React from 'react';
-import interiorImg from '../../../assets/demos/restaurant/interior.jpg';
-import atmosphereImg from '../../../assets/demos/restaurant/atmosphere.jpg';
+import interiorImg from '../../../assets/demos/restaurant/interior.webp';
+import atmosphereImg from '../../../assets/demos/restaurant/atmosphere.webp';
 
 export const RestaurantGallery: React.FC = () => {
   return (

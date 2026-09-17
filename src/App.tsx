@@ -12,7 +12,6 @@ import {
   RestaurantDemo,
   BarbershopDemo,
 } from './pages';
-import { ThreeBrothersDemo } from './pages/demos/ThreeBrothersDemo';
 
 function App() {
   const { currentPath, navigate } = useRouter();
@@ -35,10 +34,6 @@ function App() {
 
   if (currentPath === '/demos/barbershop') {
     return <BarbershopDemo onNavigate={navigate} />;
-  }
-
-  if (currentPath === '/demos/three-brothers') {
-    return <ThreeBrothersDemo onNavigate={navigate} />;
   }
 
   const renderCurrentPage = () => {
