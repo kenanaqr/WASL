@@ -2,10 +2,9 @@ import React, { useEffect, useState } from 'react';
 import waslLogo from '../assets/WASL logo.png';
 
 /**
- * Constant URL for WASL website.
- * Change to 'https://www.wasljo.com/' once domain is attached.
+ * Canonical URL for WASL website.
  */
-const WASL_WEBSITE_URL = 'https://wasl.kenanaqr.workers.dev/';
+const WASL_WEBSITE_URL = 'https://wasljo.com/';
 
 /**
  * Official WASL Instagram URL.
@@ -54,7 +53,7 @@ export const KenanContactPage: React.FC<KenanContactPageProps> = () => {
       'TITLE:Co-Founder & CTO',
       'TEL;TYPE=CELL,VOICE:+962791071123',
       'EMAIL;TYPE=INTERNET:kenanaqr@wasljo.com',
-      'URL;TYPE=website:https://www.wasljo.com/',
+      'URL;TYPE=website:https://wasljo.com/',
       'URL;TYPE=linkedin:https://www.linkedin.com/in/kenan-aqrabawi-7bb63b273/',
       'URL;TYPE=instagram:https://www.instagram.com/wasljo/',
       'NOTE:WASL | وصل - Co-Founder & CTO',

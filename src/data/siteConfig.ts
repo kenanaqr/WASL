@@ -56,8 +56,8 @@ export const siteConfig: SiteConfig = {
     email: 'hello@wasljo.com',
     instagram: 'https://www.instagram.com/wasljo/',
     location: 'Amman, Jordan',
-    // Centralized temporary website URL (do not use www.wasljo.com until connected)
-    website: 'https://wasl.kenanaqr.workers.dev/',
+    // Canonical website URL
+    website: 'https://wasljo.com/',
   },
   founders: [
     {

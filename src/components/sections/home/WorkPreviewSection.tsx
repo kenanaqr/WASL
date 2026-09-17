@@ -43,7 +43,7 @@ export const WorkPreviewCard: React.FC<WorkPreviewCardProps> = ({
             <span className="h-2 w-2 rounded-full bg-sand/40"></span>
           </div>
           <span className="font-mono text-[10px] text-charcoal-muted/70 truncate max-w-[140px]">
-            wasl.jo{path}
+            wasljo.com{path}
           </span>
           <span className="text-[10px] uppercase tracking-wider font-semibold text-petrol/70">
             {conceptLabel}
