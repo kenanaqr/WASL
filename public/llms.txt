@@ -1,0 +1,24 @@
+# WASL | وصل
+
+> WASL helps local businesses in Jordan build practical digital experiences, from websites and landing pages to QR/NFC touchpoints and Google Business Profile solutions.
+
+WASL (وصل) is a digital agency based in Amman, Jordan. We build practical, fast, and purpose-driven digital touchpoints that bring local businesses closer to their customers without bloated templates or unnecessary complexity.
+
+## Core Pages
+
+- [Home](https://wasljo.com/): Overview of WASL, our approach to connecting local businesses with customers, and featured work.
+- [Services](https://wasljo.com/services): Practical digital services including Google Presence, custom websites, smart QR/NFC touchpoints, and custom digital experiences.
+- [Work](https://wasljo.com/work): Showcase of concept projects and digital touchpoint implementations for local businesses.
+- [About](https://wasljo.com/about): Our philosophy, mission, and background on helping local businesses in Jordan thrive digitally.
+- [Contact](https://wasljo.com/contact): Direct contact channels to connect with the WASL team in Amman, Jordan.
+
+## Work Concepts
+
+- [Café Concept (NARA)](https://wasljo.com/demos/cafe): Specialty coffee and breakfast concept featuring a digital menu, story, atmosphere showcase, and smart touchpoint integration.
+- [Restaurant Concept (DAR)](https://wasljo.com/demos/restaurant): Contemporary Levantine dining concept featuring a culinary showcase, digital menu, wine list, and reservation flow.
+- [Barbershop Concept (LINEA)](https://wasljo.com/demos/barbershop): Modern grooming studio concept featuring service menus, team profiles, and direct appointment booking.
+
+## Contact & Team
+
+- [Kenan Al Aqrabawi (Co-Founder & CTO)](https://wasljo.com/contact/kenan): Direct contact and NFC card profile.
+- [Mamdouh Al Khaldi (Co-Founder & CMO)](https://wasljo.com/contact/mamduh): Direct contact and NFC card profile.
