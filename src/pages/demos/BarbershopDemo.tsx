@@ -22,6 +22,14 @@ interface BarbershopDemoProps {
 export const BarbershopDemo: React.FC<BarbershopDemoProps> = ({ onNavigate }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
+    const linkId = 'font-demo-barbershop';
+    if (!document.getElementById(linkId)) {
+      const link = document.createElement('link');
+      link.id = linkId;
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Sora:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap';
+      document.head.appendChild(link);
+    }
   }, []);
 
   const handleScrollTo = (id: string) => {

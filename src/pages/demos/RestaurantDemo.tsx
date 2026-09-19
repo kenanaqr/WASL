@@ -20,9 +20,17 @@ interface RestaurantDemoProps {
 }
 
 export const RestaurantDemo: React.FC<RestaurantDemoProps> = ({ onNavigate }) => {
-  // Ensure we start at the top
+  // Ensure we start at the top and load demo-specific fonts on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    const linkId = 'font-demo-restaurant';
+    if (!document.getElementById(linkId)) {
+      const link = document.createElement('link');
+      link.id = linkId;
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700&display=swap';
+      document.head.appendChild(link);
+    }
   }, []);
 
   const handleScrollTo = (id: string) => {

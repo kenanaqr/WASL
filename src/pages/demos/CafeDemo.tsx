@@ -37,9 +37,17 @@ export const CafeDemo: React.FC<DemoProps> = ({ onNavigate }) => {
     }
   };
 
-  // Scroll to top on mount
+  // Scroll to top and load demo-specific fonts on mount
   useEffect(() => {
     window.scrollTo(0, 0);
+    const linkId = 'font-demo-cafe';
+    if (!document.getElementById(linkId)) {
+      const link = document.createElement('link');
+      link.id = linkId;
+      link.rel = 'stylesheet';
+      link.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Tajawal:wght@300;400;500;700&display=swap';
+      document.head.appendChild(link);
+    }
   }, []);
 
   return (

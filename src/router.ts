@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { startTransition, useEffect, useState } from 'react';
 
 const KNOWN_ROUTES = new Set([
   '/',
@@ -73,7 +73,9 @@ export function useRouter() {
   useEffect(() => {
     const handlePopState = () => {
       const nextPath = getResolvedRoute();
-      setCurrentPath(nextPath);
+      startTransition(() => {
+        setCurrentPath(nextPath);
+      });
       window.scrollTo(0, 0);
     };
 
@@ -87,7 +89,9 @@ export function useRouter() {
         KNOWN_ROUTES.has(normalizePath(hash.slice(1)))
       ) {
         const nextPath = getResolvedRoute();
-        setCurrentPath(nextPath);
+        startTransition(() => {
+          setCurrentPath(nextPath);
+        });
         window.scrollTo(0, 0);
       }
     };
@@ -105,7 +109,9 @@ export function useRouter() {
     const targetPath = normalizePath(path);
     if (window.location.pathname !== targetPath || window.location.hash) {
       window.history.pushState(null, '', targetPath);
-      setCurrentPath(targetPath);
+      startTransition(() => {
+        setCurrentPath(targetPath);
+      });
       window.scrollTo(0, 0);
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
