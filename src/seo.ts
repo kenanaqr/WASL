@@ -63,6 +63,10 @@ export const NOT_FOUND_SEO: SeoMetadata = {
 
 const CANONICAL_BASE = 'https://wasljo.com';
 const ORG_SCHEMA_ID = 'wasl-organization-schema';
+const OG_IMAGE_URL = 'https://wasljo.com/og-image.webp';
+const OG_IMAGE_WIDTH = '1200';
+const OG_IMAGE_HEIGHT = '630';
+const OG_IMAGE_ALT = 'WASL | وصل';
 
 export function getOrganizationSchema() {
   return {
@@ -72,7 +76,8 @@ export function getOrganizationSchema() {
     'name': siteConfig.companyName,
     'alternateName': siteConfig.arabicName,
     'url': siteConfig.contact.website,
-    'logo': `${siteConfig.contact.website}favicon.svg`,
+    'logo': `${siteConfig.contact.website}wasl-logo.svg`,
+    'image': OG_IMAGE_URL,
     'description': siteConfig.description,
     'telephone': siteConfig.contact.phone,
     'email': siteConfig.contact.email,
@@ -178,9 +183,14 @@ export function updateSeo(path: string): void {
     setMetaTag('property', 'og:title', seo.title);
     setMetaTag('property', 'og:description', seo.description);
     setMetaTag('property', 'og:url', canonicalUrl);
+    setMetaTag('property', 'og:image', OG_IMAGE_URL);
+    setMetaTag('property', 'og:image:width', OG_IMAGE_WIDTH);
+    setMetaTag('property', 'og:image:height', OG_IMAGE_HEIGHT);
+    setMetaTag('property', 'og:image:alt', OG_IMAGE_ALT);
 
     // Twitter Card
-    setMetaTag('name', 'twitter:card', 'summary');
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:image', OG_IMAGE_URL);
     setMetaTag('name', 'twitter:title', seo.title);
     setMetaTag('name', 'twitter:description', seo.description);
   } else {
@@ -197,6 +207,10 @@ export function updateSeo(path: string): void {
     setMetaTag('property', 'og:site_name', 'WASL | وصل');
     setMetaTag('property', 'og:title', NOT_FOUND_SEO.title);
     setMetaTag('property', 'og:description', NOT_FOUND_SEO.description);
+    setMetaTag('property', 'og:image', OG_IMAGE_URL);
+    setMetaTag('property', 'og:image:width', OG_IMAGE_WIDTH);
+    setMetaTag('property', 'og:image:height', OG_IMAGE_HEIGHT);
+    setMetaTag('property', 'og:image:alt', OG_IMAGE_ALT);
     
     // Remove og:url on 404
     const ogUrl = document.head.querySelector('meta[property="og:url"]');
@@ -205,7 +219,8 @@ export function updateSeo(path: string): void {
     }
 
     // Twitter Card
-    setMetaTag('name', 'twitter:card', 'summary');
+    setMetaTag('name', 'twitter:card', 'summary_large_image');
+    setMetaTag('name', 'twitter:image', OG_IMAGE_URL);
     setMetaTag('name', 'twitter:title', NOT_FOUND_SEO.title);
     setMetaTag('name', 'twitter:description', NOT_FOUND_SEO.description);
   }
