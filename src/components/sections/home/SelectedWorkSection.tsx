@@ -43,6 +43,8 @@ const Project: React.FC<ProjectProps> = ({
             <img
               src={image}
               alt={imageAlt}
+              width={1264}
+              height={848}
               className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
               loading="lazy"
             />

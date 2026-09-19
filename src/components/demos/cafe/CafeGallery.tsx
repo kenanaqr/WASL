@@ -23,6 +23,8 @@ export const CafeGallery: React.FC = () => {
               <img
                 src={atmosphereImg}
                 alt="Cafe Atmosphere"
+                width={1200}
+                height={896}
                 className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                 loading="lazy"
               />
@@ -35,6 +37,8 @@ export const CafeGallery: React.FC = () => {
               <img
                 src={counterImg}
                 alt="Cafe Counter"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                 loading="lazy"
               />
@@ -47,6 +51,8 @@ export const CafeGallery: React.FC = () => {
               <img
                 src={pastryImg}
                 alt="Pastry Display"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                 loading="lazy"
               />

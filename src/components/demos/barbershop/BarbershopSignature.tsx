@@ -16,6 +16,8 @@ export const BarbershopSignature: React.FC = () => {
             <img
               src={beardImg}
               alt="The LINEA Session"
+              width={1024}
+              height={1024}
               className="h-full w-full object-cover"
               loading="lazy"
             />

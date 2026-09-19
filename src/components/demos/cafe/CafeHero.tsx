@@ -14,6 +14,9 @@ export const CafeHero: React.FC<CafeHeroProps> = ({ onScrollTo }) => {
         <img
           src={heroImg}
           alt="NARA Cafe Interior"
+          width={1264}
+          height={848}
+          fetchPriority="high"
           className="h-full w-full object-cover opacity-70"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-cafe-espresso/90 via-cafe-espresso/30 to-transparent"></div>

@@ -38,6 +38,8 @@ export const CafeStory: React.FC = () => {
               <img
                 src={storyImg}
                 alt="Coffee preparation at NARA"
+                width={896}
+                height={1200}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

@@ -28,7 +28,9 @@ export const BarbershopGallery: React.FC = () => {
             <img
               src={haircutImg}
               alt="Precision fade detail"
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+              width={1024}
+              height={1024}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               loading="lazy"
             />
           </div>
@@ -37,30 +39,36 @@ export const BarbershopGallery: React.FC = () => {
           <div className="col-span-2 md:col-span-5 flex flex-col gap-3 sm:gap-4">
 
             {/* Finished result portrait */}
-            <div className="h-60 sm:h-72 md:flex-1 overflow-hidden rounded-sm group">
+            <div className="group relative aspect-[3/4] overflow-hidden rounded-sm bg-neutral-900">
               <img
                 src={resultImg}
                 alt="Finished modern haircut"
-                className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                width={896}
+                height={1200}
+                className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
 
             {/* Bottom row split */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              <div className="h-40 sm:h-48 overflow-hidden rounded-sm group">
+              <div className="group relative aspect-square overflow-hidden rounded-sm bg-neutral-900">
                 <img
                   src={beardImg}
                   alt="Beard grooming"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  width={1024}
+                  height={1024}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
-              <div className="h-40 sm:h-48 overflow-hidden rounded-sm group">
+              <div className="group relative aspect-square overflow-hidden rounded-sm bg-neutral-900">
                 <img
                   src={toolsImg}
                   alt="Barber tools"
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  width={1024}
+                  height={1024}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>

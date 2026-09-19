@@ -27,6 +27,8 @@ export const CafeSignatures: React.FC = () => {
               <img
                 src={signatureImg}
                 alt="NARA Flat White"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
@@ -46,6 +48,8 @@ export const CafeSignatures: React.FC = () => {
               <img
                 src={v60Img}
                 alt="Seasonal V60"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
@@ -65,6 +69,8 @@ export const CafeSignatures: React.FC = () => {
               <img
                 src={cheesecakeImg}
                 alt="Basque Cheesecake"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />

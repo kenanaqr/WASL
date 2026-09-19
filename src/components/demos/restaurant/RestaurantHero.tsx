@@ -15,6 +15,9 @@ export const RestaurantHero: React.FC<RestaurantHeroProps> = ({ onScrollTo }) =>
         <img
           src={heroImg}
           alt="DAR Restaurant Interior"
+          width={1264}
+          height={848}
+          fetchPriority="high"
           className="h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dar-midnight via-dar-midnight/40 to-dar-midnight/80"></div>

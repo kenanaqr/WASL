@@ -34,7 +34,9 @@ export const BarbershopConnection: React.FC = () => {
               <img
                 src={touchpointImg}
                 alt="LINEA NFC Touchpoint"
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                width={1024}
+                height={1024}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
             </div>

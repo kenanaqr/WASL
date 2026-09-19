@@ -34,6 +34,8 @@ export const RestaurantDigitalConnection: React.FC = () => {
               <img
                 src={touchpointImg}
                 alt="DAR Physical Touchpoint Card"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 loading="lazy"
               />

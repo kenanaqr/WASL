@@ -30,6 +30,8 @@ export const RestaurantSignatures: React.FC = () => {
                 <img
                   src={eggplantImg}
                   alt={eggplant.name}
+                  width={1024}
+                  height={1024}
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -51,6 +53,8 @@ export const RestaurantSignatures: React.FC = () => {
                 <img
                   src={lambImg}
                   alt={lamb.name}
+                  width={1024}
+                  height={1024}
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   loading="lazy"
                 />
@@ -72,6 +76,8 @@ export const RestaurantSignatures: React.FC = () => {
                 <img
                   src={basbousaImg}
                   alt={basbousa.name}
+                  width={1024}
+                  height={1024}
                   className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   loading="lazy"
                 />

@@ -35,6 +35,8 @@ export const BarbershopStory: React.FC = () => {
               <img
                 src={toolsImg}
                 alt="LINEA barber tools"
+                width={1024}
+                height={1024}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

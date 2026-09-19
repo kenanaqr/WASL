@@ -25,6 +25,9 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <img
                   src={waslLogo}
                   alt="WASL Logo"
+                  width={512}
+                  height={512}
+                  loading="lazy"
                   className="h-8 w-auto brightness-200"
                 />
               </div>

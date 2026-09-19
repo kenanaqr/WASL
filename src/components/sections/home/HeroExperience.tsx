@@ -441,7 +441,14 @@ export const HeroExperience: React.FC<HeroExperienceProps> = ({ onNavigate: _onN
     return (
       <section className="relative bg-alabaster">
         <div className="flex min-h-[70vh] flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-          <img src={waslLogo} alt="" aria-hidden="true" className="w-[210px] sm:w-[300px] h-auto" />
+          <img
+            src={waslLogo}
+            alt=""
+            aria-hidden="true"
+            width={512}
+            height={512}
+            className="w-[210px] sm:w-[300px] h-auto"
+          />
           <div className="mt-10 text-center">
             <p className="text-2xl sm:text-3xl font-semibold tracking-tight text-petrol">WASL</p>
             <p className="mt-1 text-base sm:text-lg font-medium text-petrol/80 font-arabic">وصل</p>

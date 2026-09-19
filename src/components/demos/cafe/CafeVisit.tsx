@@ -60,6 +60,8 @@ export const CafeVisit: React.FC = () => {
             <img
               src={exteriorImg}
               alt="NARA Cafe Exterior"
+              width={1024}
+              height={1024}
               className="h-full w-full object-cover"
               loading="lazy"
             />

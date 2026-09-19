@@ -24,7 +24,9 @@ export const BarbershopTeam: React.FC = () => {
                 <img
                   src={barberImg}
                   alt={member.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  width={896}
+                  height={1200}
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   style={{ objectPosition: idx === 0 ? 'center 20%' : idx === 1 ? 'center 30%' : 'center 15%' }}
                   loading="lazy"
                 />

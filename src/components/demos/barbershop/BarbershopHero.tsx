@@ -15,6 +15,9 @@ export const BarbershopHero: React.FC<BarbershopHeroProps> = ({ onScrollTo }) =>
         <img
           src={heroImg}
           alt="Barber at work"
+          width={1264}
+          height={848}
+          fetchPriority="high"
           className="h-full w-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-linea-carbon via-linea-carbon/50 to-linea-carbon/20"></div>

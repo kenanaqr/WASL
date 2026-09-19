@@ -25,6 +25,8 @@ export const RestaurantGallery: React.FC = () => {
               <img
                 src={interiorImg}
                 alt="DAR Restaurant Interior"
+                width={1200}
+                height={896}
                 className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                 loading="lazy"
               />
@@ -38,6 +40,8 @@ export const RestaurantGallery: React.FC = () => {
                 <img
                   src={atmosphereImg}
                   alt="DAR Dining Atmosphere"
+                  width={1200}
+                  height={896}
                   className="h-full w-full object-cover transition-transform duration-1000 hover:scale-105"
                   loading="lazy"
                 />

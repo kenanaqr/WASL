@@ -143,6 +143,8 @@ export const MamduhContactPage: React.FC<MamduhContactPageProps> = () => {
               <img
                 src={waslLogo}
                 alt="WASL Logo"
+                width={512}
+                height={512}
                 className="h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />
               <div className="flex items-baseline gap-1.5">

@@ -22,6 +22,8 @@ export const CafeDigitalConnection: React.FC = () => {
               <img
                 src={qrStandImg}
                 alt="Leave a review QR Code"
+                width={1264}
+                height={848}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />

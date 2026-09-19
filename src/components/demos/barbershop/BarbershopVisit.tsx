@@ -68,6 +68,8 @@ export const BarbershopVisit: React.FC = () => {
             <img
               src={interiorImg}
               alt="LINEA Barbershop Interior"
+              width={1200}
+              height={896}
               className="h-full w-full object-cover"
               loading="lazy"
             />
