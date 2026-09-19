@@ -132,7 +132,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
 
             {demosDropdownOpen && (
               <div className="absolute right-0 mt-2 w-60 rounded-lg border border-sand/40 bg-alabaster py-2 shadow-md">
-                <div className="px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-charcoal-muted/70">
+                <div className="px-3.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-charcoal-muted">
                   Interactive Concepts
                 </div>
                 {siteConfig.demoLinks.map((demo) => {
@@ -228,7 +228,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
             ))}
 
             <div className="pt-5 border-t border-charcoal/10 mt-3">
-              <p className="text-[10px] font-semibold uppercase tracking-wider text-charcoal/50 mb-1 pl-1">
+              <p className="text-[10px] font-semibold uppercase tracking-wider text-charcoal/80 mb-1 pl-1">
                 Work Concepts
               </p>
               <div className="flex flex-col space-y-0">
@@ -245,7 +245,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
                     }`}
                   >
                     <span>{demo.name}</span>
-                    <span className="text-sm font-arabic text-charcoal/50">{demo.arabicName}</span>
+                    <span className="text-sm font-arabic text-charcoal/80">{demo.arabicName}</span>
                   </a>
                 ))}
               </div>

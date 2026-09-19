@@ -12,7 +12,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onNavigate }) 
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-petrol leading-tight mb-4">
           Ready to get closer to your customers?
         </h2>
-        <p className="text-lg sm:text-xl font-medium text-petrol/60 font-arabic mb-12">
+        <p className="text-lg sm:text-xl font-medium text-petrol/80 font-arabic mb-12">
           مستعد لتقريب عملك من عملائك؟
         </p>
         

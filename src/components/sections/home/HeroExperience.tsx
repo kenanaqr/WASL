@@ -456,7 +456,7 @@ export const HeroExperience: React.FC<HeroExperienceProps> = ({ onNavigate: _onN
           <h1 className="mt-6 text-center text-xl sm:text-2xl font-medium tracking-tight text-charcoal/90 max-w-lg">
             Bringing businesses closer to their customers.
           </h1>
-          <p className="mt-2 text-center text-base font-medium text-petrol/70 font-arabic">
+          <p className="mt-2 text-center text-base font-medium text-petrol/80 font-arabic">
             نقرب الأعمال من عملائها.
           </p>
         </div>
@@ -486,10 +486,10 @@ export const HeroExperience: React.FC<HeroExperienceProps> = ({ onNavigate: _onN
       className="initial-label"
     >
       <div className="flex flex-col items-center text-center">
-        <p className="text-[10px] sm:text-sm font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] text-charcoal/60">
+        <p className="text-[10px] sm:text-sm font-semibold uppercase tracking-[0.16em] sm:tracking-[0.2em] text-charcoal/80">
           {english}
         </p>
-        <p className="mt-1 text-xs sm:text-base font-medium text-petrol/50 font-arabic">{arabic}</p>
+        <p className="mt-1 text-xs sm:text-base font-medium text-petrol/80 font-arabic">{arabic}</p>
       </div>
     </foreignObject>
   );

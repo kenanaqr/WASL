@@ -30,7 +30,7 @@ export const BuildFurtherSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Concept */}
           <div className="lg:col-span-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-petrol/50 mb-4">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-petrol/80 mb-4">
               Practical path
             </p>
             <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-petrol leading-tight">
@@ -38,7 +38,7 @@ export const BuildFurtherSection: React.FC = () => {
               <br className="hidden sm:inline" />
               Build further.
             </h2>
-            <p className="mt-2 text-base font-medium text-petrol/60 font-arabic">
+            <p className="mt-2 text-base font-medium text-petrol/80 font-arabic">
               ابدأ ببساطة. ثم ابنِ أكثر.
             </p>
             <p className="mt-6 text-base text-charcoal/75 font-light leading-relaxed max-w-md">
@@ -55,7 +55,7 @@ export const BuildFurtherSection: React.FC = () => {
                   className="relative rounded-lg border border-sand/50 bg-white/60 p-5"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="flex h-7 w-7 items-center justify-center rounded-full border border-sand/60 text-xs font-mono font-medium text-petrol/60">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full border border-sand/60 text-xs font-mono font-medium text-petrol/80">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                     {index < steps.length - 1 && (
@@ -65,7 +65,7 @@ export const BuildFurtherSection: React.FC = () => {
                   <h3 className="text-base font-medium text-petrol">
                     {step.title}
                   </h3>
-                  <p className="mt-0.5 text-xs text-sand-muted font-arabic">
+                  <p className="mt-0.5 text-xs text-petrol/80 font-arabic">
                     {step.arabicTitle}
                   </p>
                   <p className="mt-2 text-sm text-charcoal/70 font-light">
@@ -74,7 +74,7 @@ export const BuildFurtherSection: React.FC = () => {
                 </div>
               ))}
             </div>
-            <p className="mt-4 text-xs text-charcoal-muted/60 font-light">
+            <p className="mt-4 text-xs text-charcoal-muted font-light">
               This is not a mandatory sequence — we start wherever makes the most sense.
             </p>
           </div>

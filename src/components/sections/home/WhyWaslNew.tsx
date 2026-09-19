@@ -28,13 +28,13 @@ export const WhyWaslNew: React.FC = () => {
     <section className="py-24 sm:py-32 bg-petrol">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand/60 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand/80 mb-4">
             Why WASL
           </p>
           <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-alabaster">
             A practical partner.
           </h2>
-          <p className="mt-2 text-base font-medium text-sand/50 font-arabic">
+          <p className="mt-2 text-base font-medium text-sand/80 font-arabic">
             شريك عملي.
           </p>
         </div>
@@ -45,7 +45,7 @@ export const WhyWaslNew: React.FC = () => {
               <h3 className="text-lg font-medium text-alabaster mb-1">
                 {reason.title}
               </h3>
-              <p className="text-xs font-medium text-sand/50 font-arabic mb-3">
+              <p className="text-xs font-medium text-sand/80 font-arabic mb-3">
                 {reason.arabicTitle}
               </p>
               <p className="text-sm text-alabaster/70 font-light leading-relaxed">

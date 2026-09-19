@@ -40,7 +40,7 @@ export const WhatWeDoSection: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-petrol leading-tight">
             We build the connection.
           </h2>
-          <p className="mt-2 text-base sm:text-lg font-medium text-petrol/70 font-arabic">
+          <p className="mt-2 text-base sm:text-lg font-medium text-petrol/80 font-arabic">
             نبني الوصل.
           </p>
           <p className="mt-6 text-base sm:text-lg text-charcoal/80 font-light leading-relaxed max-w-xl">
@@ -56,7 +56,7 @@ export const WhatWeDoSection: React.FC = () => {
               className="group"
             >
               <div className="flex items-baseline gap-3 mb-4">
-                <span className="font-mono text-sm font-medium text-petrol/40">
+                <span className="font-mono text-sm font-medium text-petrol/80">
                   {service.number}
                 </span>
                 <div className="h-px flex-1 bg-sand/50" />
@@ -64,7 +64,7 @@ export const WhatWeDoSection: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-medium tracking-tight text-petrol">
                 {service.title}
               </h3>
-              <p className="mt-1 text-xs text-sand-muted font-arabic">
+              <p className="mt-1 text-xs text-petrol/80 font-arabic">
                 {service.arabicTitle}
               </p>
               <p className="mt-3 text-sm text-charcoal/75 font-light leading-relaxed">

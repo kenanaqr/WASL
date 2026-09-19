@@ -80,12 +80,12 @@ const Project: React.FC<ProjectProps> = ({
           <h3 className="text-2xl sm:text-3xl font-medium tracking-tight text-alabaster">
             {name}
           </h3>
-          <span className="text-base font-medium text-sand/60 font-arabic">{arabicName}</span>
+          <span className="text-base font-medium text-sand/80 font-arabic">{arabicName}</span>
         </div>
-        <p className="text-sm font-medium uppercase tracking-[0.15em] text-sand/50 mb-4">
+        <p className="text-sm font-medium uppercase tracking-[0.15em] text-sand/80 mb-4">
           {type}
         </p>
-        <p className="text-xs text-alabaster/40 mb-5">
+        <p className="text-xs text-alabaster/70 mb-5">
           Independent concept project by WASL
         </p>
         <button
@@ -111,13 +111,13 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onNavi
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section heading */}
         <div className="mb-16 sm:mb-20">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand/60 mb-4">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sand/80 mb-4">
             Selected Work
           </p>
           <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-alabaster">
             Three concepts. Three industries.
           </h2>
-          <p className="mt-2 text-base font-medium text-sand/50 font-arabic">
+          <p className="mt-2 text-base font-medium text-sand/80 font-arabic">
             ثلاثة مشاريع. ثلاث صناعات.
           </p>
         </div>

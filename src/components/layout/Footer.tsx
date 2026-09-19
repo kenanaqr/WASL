@@ -44,7 +44,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <p className="text-sm text-alabaster/70 max-w-sm leading-relaxed">
               {siteConfig.tagline}
             </p>
-            <p className="text-xs text-sand/70 tracking-wide">
+            <p className="text-xs text-sand/80 tracking-wide">
               {siteConfig.contact.location}
             </p>
           </div>
@@ -83,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     className="text-sm text-alabaster/75 hover:text-alabaster transition-colors duration-200 flex items-center gap-2"
                   >
                     <span>{demo.name}</span>
-                    <span className="text-xs font-arabic text-sand/60">({demo.arabicName})</span>
+                    <span className="text-xs font-arabic text-sand/80">({demo.arabicName})</span>
                   </a>
                 </li>
               ))}
@@ -97,7 +97,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm text-alabaster/75">
               <li>
-                <span className="text-sand/60 block text-xs">Phone</span>
+                <span className="text-sand/80 block text-xs">Phone</span>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/[^0-9+]/g, '')}`}
                   className="font-mono text-xs hover:text-alabaster transition-colors"
@@ -106,7 +106,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <span className="text-sand/60 block text-xs">WhatsApp</span>
+                <span className="text-sand/80 block text-xs">WhatsApp</span>
                 <a
                   href={`https://wa.me/${siteConfig.contact.whatsapp.replace(/[^0-9]/g, '')}`}
                   target="_blank"
@@ -117,7 +117,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <span className="text-sand/60 block text-xs">Email</span>
+                <span className="text-sand/80 block text-xs">Email</span>
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="text-xs hover:text-alabaster transition-colors"
@@ -126,16 +126,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </a>
               </li>
               <li>
-                <span className="text-sand/60 block text-xs">Location</span>
+                <span className="text-sand/80 block text-xs">Location</span>
                 <span className="text-xs">{siteConfig.contact.location}</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-16 border-t border-alabaster/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-alabaster/50">
+        <div className="mt-16 border-t border-alabaster/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-alabaster/70">
           <p>© {currentYear} {siteConfig.companyName} | {siteConfig.arabicName}. All rights reserved.</p>
-          <p className="text-sand/60 font-arabic text-sm">وصل — نقرب الأعمال من عملائها.</p>
+          <p className="text-sand/80 font-arabic text-sm">وصل — نقرب الأعمال من عملائها.</p>
         </div>
       </div>
     </footer>
