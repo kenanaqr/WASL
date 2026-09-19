@@ -1,13 +1,24 @@
 import React from 'react';
 import naraHero from '../../../assets/demos/cafe/hero.webp';
+import naraHero640 from '../../../assets/demos/cafe/hero-640.webp';
+import naraHero960 from '../../../assets/demos/cafe/hero-960.webp';
+
 import darHero from '../../../assets/demos/restaurant/hero.webp';
+import darHero640 from '../../../assets/demos/restaurant/hero-640.webp';
+import darHero960 from '../../../assets/demos/restaurant/hero-960.webp';
+
 import lineaHero from '../../../assets/demos/barbershop/hero.webp';
+import lineaHero640 from '../../../assets/demos/barbershop/hero-640.webp';
+import lineaHero960 from '../../../assets/demos/barbershop/hero-960.webp';
 
 interface ProjectProps {
   name: string;
   arabicName: string;
   type: string;
   image: string;
+  srcSet: string;
+  width: number;
+  height: number;
   imageAlt: string;
   path: string;
   onNavigate: (path: string) => void;
@@ -20,6 +31,9 @@ const Project: React.FC<ProjectProps> = ({
   arabicName,
   type,
   image,
+  srcSet,
+  width,
+  height,
   imageAlt,
   path,
   onNavigate,
@@ -42,9 +56,11 @@ const Project: React.FC<ProjectProps> = ({
           <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden">
             <img
               src={image}
+              srcSet={srcSet}
+              sizes="(min-width: 1280px) 784px, (min-width: 1024px) 67vw, (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
               alt={imageAlt}
-              width={1264}
-              height={848}
+              width={width}
+              height={height}
               className="h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
               loading="lazy"
             />
@@ -113,6 +129,9 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onNavi
             arabicName="نارا"
             type="Café"
             image={naraHero}
+            srcSet={`${naraHero640} 640w, ${naraHero960} 960w, ${naraHero} 1376w`}
+            width={1376}
+            height={768}
             imageAlt="NARA café concept — specialty coffee and breakfast"
             path="/demos/cafe"
             onNavigate={onNavigate}
@@ -122,6 +141,9 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onNavi
             arabicName="دار"
             type="Restaurant"
             image={darHero}
+            srcSet={`${darHero640} 640w, ${darHero960} 960w, ${darHero} 1264w`}
+            width={1264}
+            height={848}
             imageAlt="DAR restaurant concept — contemporary Levantine dining"
             path="/demos/restaurant"
             onNavigate={onNavigate}
@@ -132,6 +154,9 @@ export const SelectedWorkSection: React.FC<SelectedWorkSectionProps> = ({ onNavi
             arabicName="لاينا"
             type="Barbershop"
             image={lineaHero}
+            srcSet={`${lineaHero640} 640w, ${lineaHero960} 960w, ${lineaHero} 1376w`}
+            width={1376}
+            height={768}
             imageAlt="LINEA barbershop concept — modern grooming studio"
             path="/demos/barbershop"
             onNavigate={onNavigate}

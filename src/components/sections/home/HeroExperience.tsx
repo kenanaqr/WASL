@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
 import { useGSAP } from '@gsap/react';
 
-import waslLogo from '../../../assets/WASL logo.png';
+const waslLogo = '/wasl-hero-logo.webp';
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -445,8 +445,8 @@ export const HeroExperience: React.FC<HeroExperienceProps> = ({ onNavigate: _onN
             src={waslLogo}
             alt=""
             aria-hidden="true"
-            width={512}
-            height={512}
+            width={353}
+            height={234}
             className="w-[210px] sm:w-[300px] h-auto"
           />
           <div className="mt-10 text-center">

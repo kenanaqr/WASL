@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { siteConfig } from '../../data/siteConfig';
-import waslLogo from '../../assets/WASL logo.png';
+const waslLogo = '/wasl-hero-logo.webp';
 
 interface NavbarProps {
   currentPath: string;
@@ -66,8 +66,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPath, onNavigate }) => {
           <img
             src={waslLogo}
             alt="WASL Logo"
-            width={512}
-            height={512}
+            width={353}
+            height={234}
             className="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:transform-none"
           />
           <div className="flex items-baseline gap-2">

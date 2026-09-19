@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import waslLogo from '../assets/WASL logo.png';
+const waslLogo = '/wasl-hero-logo.webp';
 
 /**
  * Canonical URL for WASL website.
@@ -143,8 +143,8 @@ export const MamduhContactPage: React.FC<MamduhContactPageProps> = () => {
               <img
                 src={waslLogo}
                 alt="WASL Logo"
-                width={512}
-                height={512}
+                width={353}
+                height={234}
                 className="h-7 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
               />
               <div className="flex items-baseline gap-1.5">

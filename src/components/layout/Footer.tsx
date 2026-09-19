@@ -1,6 +1,6 @@
 import React from 'react';
 import { siteConfig } from '../../data/siteConfig';
-import waslLogo from '../../assets/WASL logo.png';
+const waslLogo = '/wasl-hero-logo.webp';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -25,8 +25,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <img
                   src={waslLogo}
                   alt="WASL Logo"
-                  width={512}
-                  height={512}
+                  width={353}
+                  height={234}
                   loading="lazy"
                   className="h-8 w-auto brightness-200"
                 />
