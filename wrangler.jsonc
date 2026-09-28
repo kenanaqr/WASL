@@ -1,9 +1,15 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "wasl",
+  "main": "worker/pulse-worker.ts",
   "compatibility_date": "2026-09-07",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "single-page-application"
-  }
+    "not_found_handling": "single-page-application",
+    "binding": "ASSETS",
+    "run_worker_first": ["/_p/*"]
+  },
+  "services": [{ "binding": "PULSE", "service": "wasl-pulse", "entrypoint": "Pulse" }],
+  "ratelimits": [{ "name": "PULSE_LIMITER", "namespace_id": "1005", "simple": { "limit": 30, "period": 60 } }],
+  "vars": { "SITE_ID": "wasljo" }
 }
