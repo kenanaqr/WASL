@@ -67,8 +67,6 @@ const BOT_WORDS = [
   'lighthouse',
   'preview',
   'facebookexternalhit',
-  'whatsapp',
-  'telegram',
   'curl/',
   'wget/',
   'python',
@@ -88,7 +86,9 @@ const BOT_WORDS = [
 ];
 
 // A missing User-Agent is treated as a bot. "Cubot" is a real phone brand, so it is
-// removed before looking for "bot".
+// removed before looking for "bot". "whatsapp" and "telegram" are not on the list on
+// purpose: their link-preview robots never run the browser script, and real visitors
+// in those apps' in-app browsers must still be counted.
 function looksLikeBot(userAgent: string | null): boolean {
   if (!userAgent) return true;
   const text = userAgent.toLowerCase().replaceAll('cubot', '');
